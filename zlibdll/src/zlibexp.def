@@ -1,0 +1,10 @@
+LIBRARY
+EXPORTS
+;
+inflateEnd
+inflate
+inflateInit2_
+
+crc32
+inflateReset
+inflateInit_

@@ -1,0 +1,5 @@
+LIBRARY
+EXPORTS
+;
+lua_open
+lua_close

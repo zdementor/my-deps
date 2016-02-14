@@ -1,0 +1,111 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: libpng - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"../../../obj/ReleaseLibPng/pngw32.res" /i "..\.." /d "NDEBUG" "H:\My_Engine\src\deps\libpng\pngw32.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP151.tmp" with contents
+[
+/nologo /MD /W3 /O2 /I "../ZLIB/" /D "WIN32" /D "NDEBUG" /Fo"../../../obj/ReleaseLibPng/" /Fd"../../../obj/ReleaseLibPng/" /FD /c 
+"H:\My_Engine\src\deps\libpng\writepng.c"
+"H:\My_Engine\src\deps\libpng\libpng.cpp"
+"H:\My_Engine\src\deps\libpng\png.c"
+"H:\My_Engine\src\deps\libpng\pngerror.c"
+"H:\My_Engine\src\deps\libpng\PngFile.c"
+"H:\My_Engine\src\deps\libpng\pnggccrd.c"
+"H:\My_Engine\src\deps\libpng\pngget.c"
+"H:\My_Engine\src\deps\libpng\pngmem.c"
+"H:\My_Engine\src\deps\libpng\pngpread.c"
+"H:\My_Engine\src\deps\libpng\pngread.c"
+"H:\My_Engine\src\deps\libpng\pngrio.c"
+"H:\My_Engine\src\deps\libpng\pngrtran.c"
+"H:\My_Engine\src\deps\libpng\pngrutil.c"
+"H:\My_Engine\src\deps\libpng\pngset.c"
+"H:\My_Engine\src\deps\libpng\pngtrans.c"
+"H:\My_Engine\src\deps\libpng\pngvcrd.c"
+"H:\My_Engine\src\deps\libpng\pngwio.c"
+"H:\My_Engine\src\deps\libpng\pngwrite.c"
+"H:\My_Engine\src\deps\libpng\pngwtran.c"
+"H:\My_Engine\src\deps\libpng\pngwutil.c"
+"H:\My_Engine\src\deps\libpng\readpng.c"
+"H:\My_Engine\src\deps\libpng\readpng2.c"
+"H:\My_Engine\src\deps\libpng\wpng.c"
+"H:\My_Engine\src\deps\libpng\example.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP151.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP152.tmp" with contents
+[
+/nologo /out:"../../../lib/static\libpng.lib" 
+\My_Engine\obj\ReleaseLibPng\writepng.obj
+\My_Engine\obj\ReleaseLibPng\libpng.obj
+\My_Engine\obj\ReleaseLibPng\png.obj
+\My_Engine\obj\ReleaseLibPng\pngerror.obj
+\My_Engine\obj\ReleaseLibPng\PngFile.obj
+\My_Engine\obj\ReleaseLibPng\pnggccrd.obj
+\My_Engine\obj\ReleaseLibPng\pngget.obj
+\My_Engine\obj\ReleaseLibPng\pngmem.obj
+\My_Engine\obj\ReleaseLibPng\pngpread.obj
+\My_Engine\obj\ReleaseLibPng\pngread.obj
+\My_Engine\obj\ReleaseLibPng\pngrio.obj
+\My_Engine\obj\ReleaseLibPng\pngrtran.obj
+\My_Engine\obj\ReleaseLibPng\pngrutil.obj
+\My_Engine\obj\ReleaseLibPng\pngset.obj
+\My_Engine\obj\ReleaseLibPng\pngtrans.obj
+\My_Engine\obj\ReleaseLibPng\pngvcrd.obj
+\My_Engine\obj\ReleaseLibPng\pngwio.obj
+\My_Engine\obj\ReleaseLibPng\pngwrite.obj
+\My_Engine\obj\ReleaseLibPng\pngwtran.obj
+\My_Engine\obj\ReleaseLibPng\pngwutil.obj
+\My_Engine\obj\ReleaseLibPng\readpng.obj
+\My_Engine\obj\ReleaseLibPng\readpng2.obj
+\My_Engine\obj\ReleaseLibPng\wpng.obj
+\My_Engine\obj\ReleaseLibPng\example.obj
+\My_Engine\obj\ReleaseLibPng\pngw32.res
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP152.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+writepng.c
+Generating Code...
+Compiling...
+libpng.cpp
+Generating Code...
+Compiling...
+png.c
+pngerror.c
+PngFile.c
+pnggccrd.c
+pngget.c
+pngmem.c
+pngpread.c
+pngread.c
+pngrio.c
+pngrtran.c
+pngrutil.c
+pngset.c
+pngtrans.c
+pngvcrd.c
+pngwio.c
+pngwrite.c
+pngwtran.c
+pngwutil.c
+readpng.c
+readpng2.c
+Generating Code...
+Compiling...
+wpng.c
+example.c
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+libpng.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

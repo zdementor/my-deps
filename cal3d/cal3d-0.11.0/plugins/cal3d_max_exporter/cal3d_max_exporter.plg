@@ -1,0 +1,191 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: cal3d_max_exporter - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x807 /fo"..\..\..\..\..\obj\cal3d_max_exporter_release/cal3d_max_exporter.res" /d "NDEBUG" /d "_AFXDLL" "H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\cal3d_max_exporter.rc"" 
+Creating temporary file "C:\DOCUME~1\z\LOCALS~1\Temp\RSP87.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "." /I "..\src" /I "..\src\win32" /I "..\..\src" /I "..\..\..\maxsdk\7\include" /I "..\..\..\maxsdk\7\include\cs" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"..\..\..\..\..\obj\cal3d_max_exporter_release/cal3d_max_exporter.pch" /Yu"stdafx.h" /Fo"..\..\..\..\..\obj\cal3d_max_exporter_release/" /Fd"..\..\..\..\..\obj\cal3d_max_exporter_release/" /FD /c 
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\AnimationExportSheet.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\AnimationTimePage.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\BaseInterface.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\BaseMaterial.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\BaseMesh.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\BaseNode.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\BoneAssignmentPage.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\BoneCandidate.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\cal3d_max_exporter.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\Exporter.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\LevelOfDetailPage.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\Lodder.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\MaterialCandidate.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\MaterialExportSheet.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\MaterialLibraryCandidate.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\MaterialMapDialog.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\MaterialMapsPage.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\MaterialSelectionPage.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\max2ogl.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxAnimationExport.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxAnimationExportDesc.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxAnimationExportMaxscriptCall.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxInterface.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxMaterial.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxMaterialExport.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxMaterialExportDesc.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxMaterialExportMaxscriptCall.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxMesh.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxMeshExport.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxMeshExportDesc.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxMeshExportMaxscriptCall.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxNode.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxNullView.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxSkeletonExport.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxSkeletonExportDesc.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\MaxSkeletonExportMaxscriptCall.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\MeshCandidate.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\MeshExportSheet.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\Quadric.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\SkeletonCandidate.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\SkeletonExportSheet.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\SkeletonFilePage.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\SkeletonHierarchyPage.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\SubmeshCandidate.cpp"
+"H:\MyEngine\src\deps\cal3d\plugins\src\VertexCandidate.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\z\LOCALS~1\Temp\RSP87.tmp" 
+Creating temporary file "C:\DOCUME~1\z\LOCALS~1\Temp\RSP88.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "." /I "..\src" /I "..\src\win32" /I "..\..\src" /I "..\..\..\maxsdk\7\include" /I "..\..\..\maxsdk\7\include\cs" /I "..\..\cal3d_max_exporter" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"..\..\..\..\..\obj\cal3d_max_exporter_release/cal3d_max_exporter.pch" /Yu"stdafx.h" /Fo"..\..\..\..\..\obj\cal3d_max_exporter_release/" /Fd"..\..\..\..\..\obj\cal3d_max_exporter_release/" /FD /c 
+"H:\MyEngine\src\deps\cal3d\plugins\src\win32\SpringSystemPage.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\z\LOCALS~1\Temp\RSP88.tmp" 
+Creating temporary file "C:\DOCUME~1\z\LOCALS~1\Temp\RSP89.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "." /I "..\src" /I "..\src\win32" /I "..\..\src" /I "..\..\..\maxsdk\7\include" /I "..\..\..\maxsdk\7\include\cs" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /Fp"..\..\..\..\..\obj\cal3d_max_exporter_release/cal3d_max_exporter.pch" /Yc"stdafx.h" /Fo"..\..\..\..\..\obj\cal3d_max_exporter_release/" /Fd"..\..\..\..\..\obj\cal3d_max_exporter_release/" /FD /c 
+"H:\MyEngine\src\deps\cal3d\plugins\cal3d_max_exporter\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\z\LOCALS~1\Temp\RSP89.tmp" 
+Creating temporary file "C:\DOCUME~1\z\LOCALS~1\Temp\RSP8A.tmp" with contents
+[
+cal3d.lib core.lib geom.lib gfx.lib mesh.lib maxutil.lib maxscrpt.lib paramblk2.lib /nologo /subsystem:windows /dll /incremental:no /pdb:"..\..\..\..\..\obj\cal3d_max_exporte_release/cal3d_max_exporter.pdb" /machine:I386 /def:".\cal3d_max_exporter.def" /out:"..\..\..\..\..\bin\tools\plugins\max\cal3d_max_exporter.dle" /implib:"..\..\..\..\..\obj\cal3d_max_exporte_release/cal3d_max_exporter.lib" /libpath:"..\..\cal3d\Release" /libpath:"..\..\..\maxsdk\7\lib" /libpath:"..\..\..\..\..\lib\dynamic" 
+\MyEngine\obj\cal3d_max_exporter_release\AnimationExportSheet.obj
+\MyEngine\obj\cal3d_max_exporter_release\AnimationTimePage.obj
+\MyEngine\obj\cal3d_max_exporter_release\BaseInterface.obj
+\MyEngine\obj\cal3d_max_exporter_release\BaseMaterial.obj
+\MyEngine\obj\cal3d_max_exporter_release\BaseMesh.obj
+\MyEngine\obj\cal3d_max_exporter_release\BaseNode.obj
+\MyEngine\obj\cal3d_max_exporter_release\BoneAssignmentPage.obj
+\MyEngine\obj\cal3d_max_exporter_release\BoneCandidate.obj
+\MyEngine\obj\cal3d_max_exporter_release\cal3d_max_exporter.obj
+\MyEngine\obj\cal3d_max_exporter_release\Exporter.obj
+\MyEngine\obj\cal3d_max_exporter_release\LevelOfDetailPage.obj
+\MyEngine\obj\cal3d_max_exporter_release\Lodder.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaterialCandidate.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaterialExportSheet.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaterialLibraryCandidate.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaterialMapDialog.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaterialMapsPage.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaterialSelectionPage.obj
+\MyEngine\obj\cal3d_max_exporter_release\max2ogl.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxAnimationExport.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxAnimationExportDesc.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxAnimationExportMaxscriptCall.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxInterface.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxMaterial.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxMaterialExport.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxMaterialExportDesc.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxMaterialExportMaxscriptCall.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxMesh.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxMeshExport.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxMeshExportDesc.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxMeshExportMaxscriptCall.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxNode.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxNullView.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxSkeletonExport.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxSkeletonExportDesc.obj
+\MyEngine\obj\cal3d_max_exporter_release\MaxSkeletonExportMaxscriptCall.obj
+\MyEngine\obj\cal3d_max_exporter_release\MeshCandidate.obj
+\MyEngine\obj\cal3d_max_exporter_release\MeshExportSheet.obj
+\MyEngine\obj\cal3d_max_exporter_release\Quadric.obj
+\MyEngine\obj\cal3d_max_exporter_release\SkeletonCandidate.obj
+\MyEngine\obj\cal3d_max_exporter_release\SkeletonExportSheet.obj
+\MyEngine\obj\cal3d_max_exporter_release\SkeletonFilePage.obj
+\MyEngine\obj\cal3d_max_exporter_release\SkeletonHierarchyPage.obj
+\MyEngine\obj\cal3d_max_exporter_release\SpringSystemPage.obj
+\MyEngine\obj\cal3d_max_exporter_release\StdAfx.obj
+\MyEngine\obj\cal3d_max_exporter_release\SubmeshCandidate.obj
+\MyEngine\obj\cal3d_max_exporter_release\VertexCandidate.obj
+\MyEngine\obj\cal3d_max_exporter_release\cal3d_max_exporter.res
+]
+Creating command line "link.exe @C:\DOCUME~1\z\LOCALS~1\Temp\RSP8A.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AnimationExportSheet.cpp
+AnimationTimePage.cpp
+BaseInterface.cpp
+BaseMaterial.cpp
+BaseMesh.cpp
+BaseNode.cpp
+BoneAssignmentPage.cpp
+BoneCandidate.cpp
+cal3d_max_exporter.cpp
+Exporter.cpp
+LevelOfDetailPage.cpp
+Lodder.cpp
+MaterialCandidate.cpp
+MaterialExportSheet.cpp
+MaterialLibraryCandidate.cpp
+MaterialMapDialog.cpp
+MaterialMapsPage.cpp
+MaterialSelectionPage.cpp
+max2ogl.cpp
+MaxAnimationExport.cpp
+Generating Code...
+Compiling...
+MaxAnimationExportDesc.cpp
+MaxAnimationExportMaxscriptCall.cpp
+MaxInterface.cpp
+MaxMaterial.cpp
+MaxMaterialExport.cpp
+MaxMaterialExportDesc.cpp
+MaxMaterialExportMaxscriptCall.cpp
+MaxMesh.cpp
+MaxMeshExport.cpp
+MaxMeshExportDesc.cpp
+MaxMeshExportMaxscriptCall.cpp
+MaxNode.cpp
+MaxNullView.cpp
+MaxSkeletonExport.cpp
+MaxSkeletonExportDesc.cpp
+MaxSkeletonExportMaxscriptCall.cpp
+MeshCandidate.cpp
+MeshExportSheet.cpp
+Quadric.cpp
+SkeletonCandidate.cpp
+Generating Code...
+Compiling...
+SkeletonExportSheet.cpp
+SkeletonFilePage.cpp
+SkeletonHierarchyPage.cpp
+SubmeshCandidate.cpp
+VertexCandidate.cpp
+Generating Code...
+Compiling...
+SpringSystemPage.cpp
+Linking...
+   Creating library ..\..\..\..\..\obj\cal3d_max_exporte_release/cal3d_max_exporter.lib and object ..\..\..\..\..\obj\cal3d_max_exporte_release/cal3d_max_exporter.exp
+
+
+
+<h3>Results</h3>
+cal3d_max_exporter.dle - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

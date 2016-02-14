@@ -1,0 +1,16 @@
+LIBRARY
+EXPORTS
+;
+FT_Init_FreeType
+FT_Done_FreeType                                                        
+FT_Render_Glyph
+FT_Load_Glyph
+FT_Set_Pixel_Sizes
+FT_New_Face
+FT_Get_Char_Index
+FT_Load_Char
+FT_Done_Face
+FT_New_Memory_Face
+FT_Set_Char_Size
+FT_Get_Next_Char
+FT_Get_First_Char

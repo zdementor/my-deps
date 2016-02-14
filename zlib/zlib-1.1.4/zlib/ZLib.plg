@@ -1,0 +1,74 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: ZLib - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP140.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /Fp"../../../obj/ReleaseZLib/ZLib.pch" /YX /Fo"../../../obj/ReleaseZLib/" /Fd"../../../obj/ReleaseZLib/" /FD /c 
+"H:\My_Engine\src\lib\zlib\adler32.c"
+"H:\My_Engine\src\lib\zlib\compress.c"
+"H:\My_Engine\src\lib\zlib\crc32.c"
+"H:\My_Engine\src\lib\zlib\deflate.c"
+"H:\My_Engine\src\lib\zlib\gzio.c"
+"H:\My_Engine\src\lib\zlib\infblock.c"
+"H:\My_Engine\src\lib\zlib\infcodes.c"
+"H:\My_Engine\src\lib\zlib\inffast.c"
+"H:\My_Engine\src\lib\zlib\inflate.c"
+"H:\My_Engine\src\lib\zlib\inftrees.c"
+"H:\My_Engine\src\lib\zlib\infutil.c"
+"H:\My_Engine\src\lib\zlib\maketree.c"
+"H:\My_Engine\src\lib\zlib\trees.c"
+"H:\My_Engine\src\lib\zlib\uncompr.c"
+"H:\My_Engine\src\lib\zlib\zutil.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP140.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP141.tmp" with contents
+[
+/nologo /out:"../../../lib/static/ZLib.lib" 
+\My_Engine\obj\ReleaseZLib\adler32.obj
+\My_Engine\obj\ReleaseZLib\compress.obj
+\My_Engine\obj\ReleaseZLib\crc32.obj
+\My_Engine\obj\ReleaseZLib\deflate.obj
+\My_Engine\obj\ReleaseZLib\gzio.obj
+\My_Engine\obj\ReleaseZLib\infblock.obj
+\My_Engine\obj\ReleaseZLib\infcodes.obj
+\My_Engine\obj\ReleaseZLib\inffast.obj
+\My_Engine\obj\ReleaseZLib\inflate.obj
+\My_Engine\obj\ReleaseZLib\inftrees.obj
+\My_Engine\obj\ReleaseZLib\infutil.obj
+\My_Engine\obj\ReleaseZLib\maketree.obj
+\My_Engine\obj\ReleaseZLib\trees.obj
+\My_Engine\obj\ReleaseZLib\uncompr.obj
+\My_Engine\obj\ReleaseZLib\zutil.obj
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP141.tmp"
+<h3>Output Window</h3>
+Compiling...
+adler32.c
+compress.c
+crc32.c
+deflate.c
+gzio.c
+infblock.c
+infcodes.c
+inffast.c
+inflate.c
+inftrees.c
+infutil.c
+maketree.c
+trees.c
+uncompr.c
+zutil.c
+Creating library...
+
+
+
+<h3>Results</h3>
+ZLib.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

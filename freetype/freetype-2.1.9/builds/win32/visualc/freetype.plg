@@ -1,0 +1,201 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: freetype - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP133.tmp" with contents
+[
+/MD /Za /W4 /GX /Zi /O2 /I "..\..\..\include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /Fo"../../../../../../obj/ReleaseFreeType219/" /Fd"../../../../../../obj/ReleaseFreeType219/" /FD /c 
+"H:\My_Engine\src\lib\freetype\src\autohint\autohint.c"
+"H:\My_Engine\src\lib\freetype\src\bdf\bdf.c"
+"H:\My_Engine\src\lib\freetype\src\cff\cff.c"
+"H:\My_Engine\src\lib\freetype\src\base\ftbase.c"
+"H:\My_Engine\src\lib\freetype\src\cache\ftcache.c"
+"H:\My_Engine\src\lib\freetype\src\base\ftglyph.c"
+"H:\My_Engine\src\lib\freetype\src\gzip\ftgzip.c"
+"H:\My_Engine\src\lib\freetype\src\base\ftinit.c"
+"H:\My_Engine\src\lib\freetype\src\lzw\ftlzw.c"
+"H:\My_Engine\src\lib\freetype\src\base\ftmm.c"
+"H:\My_Engine\src\lib\freetype\src\base\ftsystem.c"
+"H:\My_Engine\src\lib\freetype\src\pcf\pcf.c"
+"H:\My_Engine\src\lib\freetype\src\pfr\pfr.c"
+"H:\My_Engine\src\lib\freetype\src\psaux\psaux.c"
+"H:\My_Engine\src\lib\freetype\src\pshinter\pshinter.c"
+"H:\My_Engine\src\lib\freetype\src\psnames\psmodule.c"
+"H:\My_Engine\src\lib\freetype\src\raster\raster.c"
+"H:\My_Engine\src\lib\freetype\src\sfnt\sfnt.c"
+"H:\My_Engine\src\lib\freetype\src\smooth\smooth.c"
+"H:\My_Engine\src\lib\freetype\src\truetype\truetype.c"
+"H:\My_Engine\src\lib\freetype\src\type1\type1.c"
+"H:\My_Engine\src\lib\freetype\src\cid\type1cid.c"
+"H:\My_Engine\src\lib\freetype\src\type42\type42.c"
+"H:\My_Engine\src\lib\freetype\src\winfonts\winfnt.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP133.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP134.tmp" with contents
+[
+/MD /Ze /W4 /GX /Zi /O2 /I "..\..\..\include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /Fo"../../../../../../obj/ReleaseFreeType219/" /Fd"../../../../../../obj/ReleaseFreeType219/" /FD /c 
+"H:\My_Engine\src\lib\freetype\builds\win32\ftdebug.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP134.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP135.tmp" with contents
+[
+/nologo /out:"../../../../../../lib/static/freetype219.lib" 
+\My_Engine\obj\ReleaseFreeType219\autohint.obj
+\My_Engine\obj\ReleaseFreeType219\bdf.obj
+\My_Engine\obj\ReleaseFreeType219\cff.obj
+\My_Engine\obj\ReleaseFreeType219\ftbase.obj
+\My_Engine\obj\ReleaseFreeType219\ftcache.obj
+\My_Engine\obj\ReleaseFreeType219\ftdebug.obj
+\My_Engine\obj\ReleaseFreeType219\ftglyph.obj
+\My_Engine\obj\ReleaseFreeType219\ftgzip.obj
+\My_Engine\obj\ReleaseFreeType219\ftinit.obj
+\My_Engine\obj\ReleaseFreeType219\ftlzw.obj
+\My_Engine\obj\ReleaseFreeType219\ftmm.obj
+\My_Engine\obj\ReleaseFreeType219\ftsystem.obj
+\My_Engine\obj\ReleaseFreeType219\pcf.obj
+\My_Engine\obj\ReleaseFreeType219\pfr.obj
+\My_Engine\obj\ReleaseFreeType219\psaux.obj
+\My_Engine\obj\ReleaseFreeType219\pshinter.obj
+\My_Engine\obj\ReleaseFreeType219\psmodule.obj
+\My_Engine\obj\ReleaseFreeType219\raster.obj
+\My_Engine\obj\ReleaseFreeType219\sfnt.obj
+\My_Engine\obj\ReleaseFreeType219\smooth.obj
+\My_Engine\obj\ReleaseFreeType219\truetype.obj
+\My_Engine\obj\ReleaseFreeType219\type1.obj
+\My_Engine\obj\ReleaseFreeType219\type1cid.obj
+\My_Engine\obj\ReleaseFreeType219\type42.obj
+\My_Engine\obj\ReleaseFreeType219\winfnt.obj
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\ADMINI~1.000\LOCALS~1\Temp\RSP135.tmp"
+<h3>Output Window</h3>
+Compiling...
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+cl /MD /Za /W4 /GX /Zi /O2 /I "..\..\..\include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /Fo"../../../../../../obj/ReleaseFreeType219/" /Fd"../../../../../../obj/ReleaseFreeType219/" /FD /c 
+   "H:\My_Engine\src\lib\freetype\src\autohint\autohint.c"
+   "H:\My_Engine\src\lib\freetype\src\bdf\bdf.c"
+   "H:\My_Engine\src\lib\freetype\src\cff\cff.c"
+   "H:\My_Engine\src\lib\freetype\src\base\ftbase.c"
+   "H:\My_Engine\src\lib\freetype\src\cache\ftcache.c"
+   "H:\My_Engine\src\lib\freetype\src\base\ftglyph.c"
+   "H:\My_Engine\src\lib\freetype\src\gzip\ftgzip.c"
+   "H:\My_Engine\src\lib\freetype\src\base\ftinit.c"
+   "H:\My_Engine\src\lib\freetype\src\lzw\ftlzw.c"
+   "H:\My_Engine\src\lib\freetype\src\base\ftmm.c"
+   "H:\My_Engine\src\lib\freetype\src\base\ftsystem.c"
+   "H:\My_Engine\src\lib\freetype\src\pcf\pcf.c"
+   "H:\My_Engine\src\lib\freetype\src\pfr\pfr.c"
+   "H:\My_Engine\src\lib\freetype\src\psaux\psaux.c"
+   "H:\My_Engine\src\lib\freetype\src\pshinter\pshinter.c"
+   "H:\My_Engine\src\lib\freetype\src\psnames\psmodule.c"
+   "H:\My_Engine\src\lib\freetype\src\raster\raster.c"
+   "H:\My_Engine\src\lib\freetype\src\sfnt\sfnt.c"
+   "H:\My_Engine\src\lib\freetype\src\smooth\smooth.c"
+   "H:\My_Engine\src\lib\freetype\src\truetype\truetype.c"
+   "H:\My_Engine\src\lib\freetype\src\type1\type1.c"
+   "H:\My_Engine\src\lib\freetype\src\cid\type1cid.c"
+   "H:\My_Engine\src\lib\freetype\src\type42\type42.c"
+   "H:\My_Engine\src\lib\freetype\src\winfonts\winfnt.c"
+
+autohint.c
+bdf.c
+H:\My_Engine\src\lib\freetype\src\bdf\bdfdrivr.c(419) : warning C4244: '=' : conversion from 'long ' to 'short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\bdf\bdfdrivr.c(425) : warning C4244: '=' : conversion from 'int ' to 'short ', possible loss of data
+cff.c
+H:\My_Engine\src\lib\freetype\src\cff\cffload.c(1690) : warning C4244: '=' : conversion from 'unsigned int ' to 'unsigned short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\cff\cffload.c(2246) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+ftbase.c
+ftcache.c
+H:\My_Engine\src\lib\freetype\src\cache\ftcmanag.c(167) : warning C4244: 'return' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\cache\ftccmap.c(295) : warning C4244: '=' : conversion from 'unsigned int ' to 'unsigned short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\cache\ftcbasic.c(73) : warning C4244: 'return' : conversion from 'int ' to 'unsigned char ', possible loss of data
+ftglyph.c
+ftgzip.c
+ftinit.c
+ftlzw.c
+H:\My_Engine\src\lib\freetype\src\lzw\zopen.c(253) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\lzw\zopen.c(262) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\lzw\zopen.c(280) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\lzw\zopen.c(325) : warning C4244: '=' : conversion from 'unsigned int ' to 'unsigned char ', possible loss of data
+Generating Code...
+H:\My_Engine\src\lib\freetype\src\cache\ftcbasic.c(312) : warning C4701: local variable 'node' may be used without having been initialized
+H:\My_Engine\src\lib\freetype\src\cache\ftcbasic.c(432) : warning C4701: local variable 'node' may be used without having been initialized
+Compiling...
+ftmm.c
+H:\My_Engine\src\lib\freetype\src\base\ftmm.c(53) : warning C4127: conditional expression is constant
+H:\My_Engine\src\lib\freetype\src\base\ftmm.c(53) : warning C4127: conditional expression is constant
+ftsystem.c
+pcf.c
+H:\My_Engine\src\lib\freetype\src\pcf\pcfread.c(1100) : warning C4244: '=' : conversion from 'long ' to 'short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\pcf\pcfread.c(1106) : warning C4244: '=' : conversion from 'int ' to 'short ', possible loss of data
+pfr.c
+psaux.c
+pshinter.c
+psmodule.c
+raster.c
+sfnt.c
+H:\My_Engine\src\lib\freetype\src\sfnt\sfobjs.c(210) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\sfnt\sfdriver.c(301) : warning C4054: 'type cast' : from function pointer 'void *(*)(struct TT_FaceRec_ *,int )' to data pointer 'void *'
+H:\My_Engine\src\lib\freetype\src\sfnt\sfdriver.c(304) : warning C4054: 'type cast' : from function pointer 'int (*)(struct TT_FaceRec_ *,unsigned long ,long ,unsigned char *,unsigned long *)' to data pointer 'void *'
+Generating Code...
+Compiling...
+smooth.c
+truetype.c
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(157) : warning C4244: '=' : conversion from 'int ' to 'unsigned short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(161) : warning C4244: '=' : conversion from 'int ' to 'unsigned short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(165) : warning C4244: '=' : conversion from 'int ' to 'unsigned short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(168) : warning C4244: '=' : conversion from 'int ' to 'unsigned short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(737) : warning C4244: '=' : conversion from 'unsigned long ' to 'char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(738) : warning C4244: '=' : conversion from 'unsigned long ' to 'char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(739) : warning C4244: '=' : conversion from 'unsigned long ' to 'char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(740) : warning C4244: '=' : conversion from 'unsigned long ' to 'char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(1210) : warning C4244: 'function' : conversion from 'unsigned int ' to 'unsigned short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(1239) : warning C4244: '+=' : conversion from 'long ' to 'short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(1245) : warning C4244: '+=' : conversion from 'long ' to 'short ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(1399) : warning C4244: 'function' : conversion from 'unsigned int ' to 'unsigned short ', possible loss of data
+type1.c
+type1cid.c
+H:\My_Engine\src\lib\freetype\src\cid\cidload.c(539) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\cid\cidload.c(541) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\cid\cidload.c(543) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\cid\cidload.c(566) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\cid\cidload.c(569) : warning C4244: '+=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+H:\My_Engine\src\lib\freetype\src\cid\cidload.c(573) : warning C4244: '=' : conversion from 'int ' to 'unsigned char ', possible loss of data
+type42.c
+winfnt.c
+Generating Code...
+H:\My_Engine\src\lib\freetype\src\truetype\ttgload.c(1056) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgload.c(1204) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(657) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(660) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(858) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(879) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(390) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(985) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(287) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(1213) : warning C4761: integral size mismatch in argument; conversion supplied
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(1322) : warning C4706: assignment within conditional expression
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(1402) : warning C4761: integral size mismatch in argument; conversion supplied
+H:\My_Engine\src\lib\freetype\src\truetype\ttgxvar.c(1454) : warning C4701: local variable 'localpoints' may be used without having been initialized
+Compiling...
+Microsoft (R) 32-bit C/C++ Optimizing Compiler Version 12.00.8168 for 80x86
+Copyright (C) Microsoft Corp 1984-1998. All rights reserved.
+
+cl /MD /Ze /W4 /GX /Zi /O2 /I "..\..\..\include" /D "NDEBUG" /D "WIN32" /D "_MBCS" /D "_LIB" /Fo"../../../../../../obj/ReleaseFreeType219/" /Fd"../../../../../../obj/ReleaseFreeType219/" /FD /c 
+   "H:\My_Engine\src\lib\freetype\builds\win32\ftdebug.c"
+
+ftdebug.c
+Creating library...
+
+
+
+<h3>Results</h3>
+freetype219.lib - 0 error(s), 51 warning(s)
+</pre>
+</body>
+</html>
