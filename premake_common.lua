@@ -68,8 +68,9 @@ LUA_DLL_DIR		= DEPS_DIR.."/luadll"
 LUA_DLL_INC_DIR	= LUA_DLL_DIR.."/include"
 LUA_DLL_SRC_DIR	= LUA_DLL_DIR.."/src"
 
-LUA_INTERPRETER_DEP = "luaapp-{v.5.0.2}"
-LUA_COMPILER_DEP	= "luac-{v.5.0.2}"
+-- Lua tools
+LUA_INTERPRETER_DEP 	= "lua"
+LUA_COMPILER_DEP	= "luac"
 
 -- tolua++
 TOLUA_DEP		= "libtolua++-{v.1.0.92}"
