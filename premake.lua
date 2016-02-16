@@ -69,6 +69,16 @@ InitPackage(LUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	{LUA_INC_DIR}, {})
 
 package = newpackage()
+InitPackage(LUA51_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+	{}, {}, {},
+	{"LUA_OPNAMES"}, {}, {},
+	{	matchfiles(LUA51_SRC_DIR.."/*.c"),
+		matchfiles(LUA51_SRC_DIR.."/*.h"),
+		matchfiles(LUA51_INC_DIR.."/*.h"),
+	}, {},
+	{LUA51_INC_DIR}, {})
+
+package = newpackage()
 InitPackage(LUA_INTERPRETER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	{LUA_DEP}, {}, {},
 	{}, {}, {},
@@ -94,19 +104,6 @@ if windows then
 end
 
 package = newpackage()
-InitPackage(LUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
-	{}, {}, {},
-	{LUA_API, "LUA_OPNAMES"}, {}, {},
-	{	matchfiles(LUA_SRC_DIR.."/*.c"),
-		matchfiles(LUA_SRC_DIR.."/*.h"),
-		matchfiles(LUA_INC_DIR.."/*.h"),
-		matchfiles(LUA_DLL_SRC_DIR.."/*.cpp"),
-		matchfiles(LUA_DLL_SRC_DIR.."/*.def"),
-		matchfiles(LUA_DLL_INC_DIR.."/*.h"),
-	}, {},
-	{LUA_INC_DIR}, {})
-
-package = newpackage()
 InitPackage(TOLUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	{LUA_DEP}, {}, {},
 	{"TOLUA_STATIC"}, {"TOLUA_RELEASE"}, {},
@@ -119,27 +116,29 @@ InitPackage(TOLUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 
 package = newpackage()
 InitPackage(TOLUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
-	{LUA_DLL_DEP}, {}, {},
-	{"TOLUA_EXPORTS"}, {"TOLUA_RELEASE"}, {},
-	{
+       {LUA_DEP}, {}, {},
+       {"TOLUA_EXPORTS"}, {"TOLUA_RELEASE"}, {},
+       {
 		matchfiles(TOLUA_INC_DIR.."/*.h"),
 		matchfiles(TOLUA_DLL_INC_DIR.."/*.h"),
 		matchfiles(TOLUA_DLL_SRC_DIR.."/*.cpp"),
 		matchfiles(TOLUA_SRC_DIR.."/lib/*.c"),
 		matchfiles(TOLUA_SRC_DIR.."/lib/*.h"),
-	}, {},
-	{LUA_INC_DIR, TOLUA_INC_DIR}, {})
+       }, {},
+       {LUA_INC_DIR, TOLUA_INC_DIR}, {})
 
 package = newpackage()
 InitPackage(TOLUA_APP_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
-	{TOLUA_DEP, LUA_DEP}, {}, {},
+	{LUA51_DEP}, {}, {},
 	{"TOLUA_STATIC"}, {"TOLUA_RELEASE"}, {},
 	{
 		matchfiles(TOLUA_INC_DIR.."/*.h"),
 		matchfiles(TOLUA_SRC_DIR.."/bin/*.c"),
 		matchfiles(TOLUA_SRC_DIR.."/bin/*.h"),
+		matchfiles(TOLUA_SRC_DIR.."/lib/*.c"),
+		matchfiles(TOLUA_SRC_DIR.."/lib/*.h"),
 	}, {},
-	{LUA_INC_DIR, TOLUA_INC_DIR}, BASE_LIB_PATH)
+	{LUA51_INC_DIR, TOLUA_INC_DIR}, BASE_LIB_PATH)
 
 local jpegexclude = {}
 if windows then
@@ -337,7 +336,7 @@ InitPackage(CEGUIBASE071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 
 package = newpackage()
 InitPackage(CEGUILUA071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
-	{CEGUIBASE071_DEP, TOLUA_DLL_DEP, LUA_DLL_DEP}, {}, {},
+	{CEGUIBASE071_DEP, TOLUA_DLL_DEP, LUA_DEP}, {}, {},
 	{"HAVE_CONFIG_H", "CEGUILUA_EXPORTS", "TOLUA_RELEASE"}, {}, {},
 	{	matchfiles(CEGUI071_LUA_SRC_DIR.."/*.cpp"),
 		matchfiles(CEGUI071_LUA_SRC_DIR.."/*.h"),

@@ -68,6 +68,12 @@ LUA_DLL_DIR		= DEPS_DIR.."/luadll"
 LUA_DLL_INC_DIR	= LUA_DLL_DIR.."/include"
 LUA_DLL_SRC_DIR	= LUA_DLL_DIR.."/src"
 
+-- Lua51
+LUA51_DEP	= "liblua-{v.5.1}"
+LUA51_DIR	= DEPS_DIR.."/lua/lua-5.1"
+LUA51_INC_DIR	= LUA51_DIR.."/src"
+LUA51_SRC_DIR	= LUA51_DIR.."/src"
+
 -- Lua tools
 LUA_INTERPRETER_DEP 	= "lua"
 LUA_COMPILER_DEP	= "luac"
@@ -84,7 +90,7 @@ TOLUA_DLL_DIR		= DEPS_DIR.."/tolua++dll"
 TOLUA_DLL_INC_DIR	= TOLUA_DLL_DIR.."/include"
 TOLUA_DLL_SRC_DIR	= TOLUA_DLL_DIR.."/src"
 
-TOLUA_APP_DEP	= "toluaapp++-{v.1.0.92}"
+TOLUA_APP_DEP	= "tolua++"
 
 -- jpeg
 JPEG_DEP		= "libjpeg-{v.6b}"
