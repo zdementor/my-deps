@@ -104,8 +104,20 @@ if windows then
 end
 
 package = newpackage()
+InitPackage(LUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+	{}, {}, {},
+	{LUA_API, "LUA_OPNAMES"}, {}, {},
+	{	matchfiles(LUA_DLL_SRC_DIR.."/*.cpp"),
+		matchfiles(LUA_DLL_INC_DIR.."/*.h"),
+		matchfiles(LUA_SRC_DIR.."/*.c"),
+		matchfiles(LUA_SRC_DIR.."/*.h"),
+		matchfiles(LUA_INC_DIR.."/*.h"),
+       }, {},
+       {LUA_INC_DIR}, {})
+
+package = newpackage()
 InitPackage(TOLUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
-	{LUA_DEP}, {}, {},
+	{}, {}, {},
 	{"TOLUA_STATIC"}, {"TOLUA_RELEASE"}, {},
 	{
 		matchfiles(TOLUA_INC_DIR.."/*.h"),
@@ -116,7 +128,7 @@ InitPackage(TOLUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 
 package = newpackage()
 InitPackage(TOLUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
-       {LUA_DEP}, {}, {},
+       {LUA_DLL_DEP}, {}, {},
        {"TOLUA_EXPORTS"}, {"TOLUA_RELEASE"}, {},
        {
 		matchfiles(TOLUA_INC_DIR.."/*.h"),
@@ -336,7 +348,7 @@ InitPackage(CEGUIBASE071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 
 package = newpackage()
 InitPackage(CEGUILUA071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
-	{CEGUIBASE071_DEP, TOLUA_DLL_DEP, LUA_DEP}, {}, {},
+	{CEGUIBASE071_DEP, TOLUA_DLL_DEP, LUA_DLL_DEP}, {}, {},
 	{"HAVE_CONFIG_H", "CEGUILUA_EXPORTS", "TOLUA_RELEASE"}, {}, {},
 	{	matchfiles(CEGUI071_LUA_SRC_DIR.."/*.cpp"),
 		matchfiles(CEGUI071_LUA_SRC_DIR.."/*.h"),
