@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<VisualStudioProject ProjectType="Visual C++" Version="8.00" Name="Premake" ProjectGUID="{F69339E0-F59B-4382-95C9-5E242C7D1C64}" TargetFrameworkVersion="131072">
+  <Platforms>
+    <Platform Name="Win32" />
+  </Platforms>
+  <ToolFiles>
+  </ToolFiles>
+  <Configurations>
+    <Configuration Name="Release|Win32" OutputDirectory="..\..\..\bin" IntermediateDirectory="..\..\..\obj\PremakeRelease" ConfigurationType="1" InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops" UseOfMFC="0" ATLMinimizesCRunTimeLibraryUsage="false">
+      <Tool Name="VCPreBuildEventTool" />
+      <Tool Name="VCCustomBuildTool" />
+      <Tool Name="VCXMLDataGeneratorTool" />
+      <Tool Name="VCWebServiceProxyGeneratorTool" />
+      <Tool Name="VCMIDLTool" TypeLibraryName=".\../bin/Premake.tlb" HeaderFileName="" />
+      <Tool Name="VCCLCompilerTool" Optimization="1" InlineFunctionExpansion="1" PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE" StringPooling="true" RuntimeLibrary="0" EnableFunctionLevelLinking="true" RuntimeTypeInfo="true" UsePrecompiledHeader="0" PrecompiledHeaderFile=".\obj/Release/Premake.pch" AssemblerListingLocation=".\obj/Release/" ObjectFile=".\obj/Release/" ProgramDataBaseFileName=".\obj/Release/" WarningLevel="4" SuppressStartupBanner="true" />
+      <Tool Name="VCManagedResourceCompilerTool" />
+      <Tool Name="VCResourceCompilerTool" PreprocessorDefinitions="NDEBUG,_CRT_SECURE_NO_DEPRECATE" Culture="1033" />
+      <Tool Name="VCPreLinkEventTool" />
+      <Tool Name="VCLinkerTool" AdditionalDependencies="odbc32.lib odbccp32.lib" OutputFile="..\..\..\bin\premake.exe" LinkIncremental="1" SuppressStartupBanner="true" AdditionalLibraryDirectories=".." ProgramDatabaseFile="$(OutDir)/$(ProjectName).pdb" SubSystem="1" EntryPointSymbol="mainCRTStartup" RandomizedBaseAddress="1" DataExecutionPrevention="0" TargetMachine="1" />
+      <Tool Name="VCALinkTool" />
+      <Tool Name="VCManifestTool" />
+      <Tool Name="VCXDCMakeTool" />
+      <Tool Name="VCBscMakeTool" />
+      <Tool Name="VCFxCopTool" />
+      <Tool Name="VCAppVerifierTool" />
+      <Tool Name="VCPostBuildEventTool" />
+    </Configuration>
+    <Configuration Name="Debug|Win32" OutputDirectory="..\..\..\bin" IntermediateDirectory="..\..\..\obj\PremakeDebug" ConfigurationType="1" InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops" UseOfMFC="0" ATLMinimizesCRunTimeLibraryUsage="false">
+      <Tool Name="VCPreBuildEventTool" />
+      <Tool Name="VCCustomBuildTool" />
+      <Tool Name="VCXMLDataGeneratorTool" />
+      <Tool Name="VCWebServiceProxyGeneratorTool" />
+      <Tool Name="VCMIDLTool" TypeLibraryName=".\../bin/Premake.tlb" HeaderFileName="" />
+      <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="_CRT_SECURE_NO_DEPRECATE" BasicRuntimeChecks="3" RuntimeLibrary="1" RuntimeTypeInfo="true" UsePrecompiledHeader="0" PrecompiledHeaderFile="" WarningLevel="4" SuppressStartupBanner="true" DebugInformationFormat="4" />
+      <Tool Name="VCManagedResourceCompilerTool" />
+      <Tool Name="VCResourceCompilerTool" PreprocessorDefinitions="_DEBUG,_CRT_SECURE_NO_DEPRECATE" Culture="1033" />
+      <Tool Name="VCPreLinkEventTool" />
+      <Tool Name="VCLinkerTool" AdditionalDependencies="odbc32.lib odbccp32.lib" OutputFile="..\..\..\bin/premake_d.exe" LinkIncremental="1" SuppressStartupBanner="true" AdditionalLibraryDirectories=".." GenerateDebugInformation="true" ProgramDatabaseFile="$(OutDir)/$(ProjectName)_d.pdb" SubSystem="1" EntryPointSymbol="mainCRTStartup" RandomizedBaseAddress="1" DataExecutionPrevention="0" TargetMachine="1" />
+      <Tool Name="VCALinkTool" />
+      <Tool Name="VCManifestTool" />
+      <Tool Name="VCXDCMakeTool" />
+      <Tool Name="VCBscMakeTool" />
+      <Tool Name="VCFxCopTool" />
+      <Tool Name="VCAppVerifierTool" />
+      <Tool Name="VCPostBuildEventTool" />
+    </Configuration>
+  </Configurations>
+  <References>
+  </References>
+  <Files>
+    <Filter Name="Lua">
+      <File RelativePath="Lua\lapi.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lapi.h">
+      </File>
+      <File RelativePath="Lua\lauxlib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lauxlib.h">
+      </File>
+      <File RelativePath="Lua\lbaselib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lcode.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lcode.h">
+      </File>
+      <File RelativePath="Lua\ldblib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\ldebug.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\ldebug.h">
+      </File>
+      <File RelativePath="Lua\ldo.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\ldo.h">
+      </File>
+      <File RelativePath="Lua\ldump.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lfunc.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lfunc.h">
+      </File>
+      <File RelativePath="Lua\lgc.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lgc.h">
+      </File>
+      <File RelativePath="Lua\linit.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\liolib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\llex.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\llex.h">
+      </File>
+      <File RelativePath="Lua\llimits.h">
+      </File>
+      <File RelativePath="Lua\lmathlib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lmem.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lmem.h">
+      </File>
+      <File RelativePath="Lua\loadlib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lobject.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lobject.h">
+      </File>
+      <File RelativePath="Lua\lopcodes.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lopcodes.h">
+      </File>
+      <File RelativePath="Lua\loslib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lparser.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lparser.h">
+      </File>
+      <File RelativePath="Lua\lstate.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lstate.h">
+      </File>
+      <File RelativePath="Lua\lstring.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lstring.h">
+      </File>
+      <File RelativePath="Lua\lstrlib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\ltable.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\ltable.h">
+      </File>
+      <File RelativePath="Lua\ltablib.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\ltests.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\ltm.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\ltm.h">
+      </File>
+      <File RelativePath="Lua\lua.h">
+      </File>
+      <File RelativePath="Lua\luaconf.h">
+      </File>
+      <File RelativePath="Lua\lualib.h">
+      </File>
+      <File RelativePath="Lua\lundump.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lundump.h">
+      </File>
+      <File RelativePath="Lua\lvm.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lvm.h">
+      </File>
+      <File RelativePath="Lua\lzio.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="Lua\lzio.h">
+      </File>
+    </Filter>
+    <Filter Name="open_watcom">
+      <File RelativePath="open_watcom\ow.c">
+        <FileConfiguration Name="Release|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+        </FileConfiguration>
+        <FileConfiguration Name="Debug|Win32">
+          <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+        </FileConfiguration>
+      </File>
+      <File RelativePath="open_watcom\ow.h">
+      </File>
+    </Filter>
+    <File RelativePath="arg.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="arg.h">
+    </File>
+    <File RelativePath="cb.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="cb.h">
+    </File>
+    <File RelativePath="cb_cpp.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="clean.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="codelite.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="codelite.h">
+    </File>
+    <File RelativePath="codelite_cpp.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="gnu.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="gnu.h">
+    </File>
+    <File RelativePath="gnu_cpp.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="gnu_cs.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="gnu_helpers.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="io.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="io.h">
+    </File>
+    <File RelativePath="monodev.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="monodev.h">
+    </File>
+    <File RelativePath="monodev_cs.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="os.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="os.h">
+    </File>
+    <File RelativePath="path.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="path.h">
+    </File>
+    <File RelativePath="platform.h">
+    </File>
+    <File RelativePath="platform_posix.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="platform_windows.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="premake.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="premake.h">
+    </File>
+    <File RelativePath="project.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="project.h">
+    </File>
+    <File RelativePath="script.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="script.h">
+    </File>
+    <File RelativePath="sharpdev.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="sharpdev.h">
+    </File>
+    <File RelativePath="sharpdev_cs.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="util.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="util.h">
+    </File>
+    <File RelativePath="vs.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="vs.h">
+    </File>
+    <File RelativePath="vs2002.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="vs2002.h">
+    </File>
+    <File RelativePath="vs2002_cs.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="vs2005.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="vs2005.h">
+    </File>
+    <File RelativePath="vs2005_cs.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="vs2008.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="vs2008.h">
+    </File>
+    <File RelativePath="vs2008_cs.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="vs6.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+    <File RelativePath="vs6.h">
+    </File>
+    <File RelativePath="vs6_cpp.c">
+      <FileConfiguration Name="Release|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="1" PreprocessorDefinitions="" />
+      </FileConfiguration>
+      <FileConfiguration Name="Debug|Win32">
+        <Tool Name="VCCLCompilerTool" Optimization="0" PreprocessorDefinitions="" BasicRuntimeChecks="3" />
+      </FileConfiguration>
+    </File>
+  </Files>
+  <Globals>
+  </Globals>
+</VisualStudioProject>
