@@ -69,22 +69,11 @@ InitPackage(LUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	{LUA_INC_DIR}, {})
 
 package = newpackage()
-InitPackage(LUA51_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
-	{}, {}, {},
-	{"LUA_OPNAMES"}, {}, {},
-	{	matchfiles(LUA51_SRC_DIR.."/*.c"),
-		matchfiles(LUA51_SRC_DIR.."/*.h"),
-		matchfiles(LUA51_INC_DIR.."/*.h"),
-	}, {},
-	{LUA51_INC_DIR}, {})
-
-package = newpackage()
 InitPackage(LUA_INTERPRETER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	{LUA_DEP}, {}, {},
 	{}, {}, {},
 	{
 		matchfiles(LUA_SRC_DIR.."/lua/*.c"),
-		matchfiles(LUA_SRC_DIR.."/lua/*.h"),
 	}, {},
 	{LUA_INC_DIR}, BASE_LIB_PATH)
 
@@ -94,19 +83,13 @@ InitPackage(LUA_COMPILER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	{}, {}, {},
 	{
 		matchfiles(LUA_SRC_DIR.."/luac/*.c"),
-		matchfiles(LUA_SRC_DIR.."/luac/*.h"),
 	}, {},
 	{LUA_INC_DIR, LUA_SRC_DIR}, BASE_LIB_PATH)
-
-local LUA_API=""
-if windows then
-	LUA_API="LUA_API=__declspec(dllexport)"
-end
 
 package = newpackage()
 InitPackage(LUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 	{}, {}, {},
-	{LUA_API, "LUA_OPNAMES"}, {}, {},
+	{"LUA_BUILD_AS_DLL",}, {}, {},
 	{	matchfiles(LUA_DLL_SRC_DIR.."/*.cpp"),
 		matchfiles(LUA_DLL_INC_DIR.."/*.h"),
 		matchfiles(LUA_SRC_DIR.."/*.c"),
@@ -141,7 +124,7 @@ InitPackage(TOLUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 
 package = newpackage()
 InitPackage(TOLUA_APP_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
-	{LUA51_DEP}, {}, {},
+	{LUA_DEP}, {}, {},
 	{"TOLUA_STATIC"}, {"TOLUA_RELEASE"}, {},
 	{
 		matchfiles(TOLUA_INC_DIR.."/*.h"),
@@ -150,7 +133,7 @@ InitPackage(TOLUA_APP_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 		matchfiles(TOLUA_SRC_DIR.."/lib/*.c"),
 		matchfiles(TOLUA_SRC_DIR.."/lib/*.h"),
 	}, {},
-	{LUA51_INC_DIR, TOLUA_INC_DIR}, BASE_LIB_PATH)
+	{LUA_INC_DIR, TOLUA_INC_DIR}, BASE_LIB_PATH)
 
 local jpegexclude = {}
 if windows then

@@ -56,27 +56,21 @@ PCRE_DIR		= DEPS_DIR.."/pcre/pcre-5.0"
 PCRE_INC_DIR	= PCRE_DIR
 PCRE_SRC_DIR	= PCRE_DIR
 
+-- Lua tools
+LUA_INTERPRETER_DEP = "lua"
+LUA_COMPILER_DEP	= "luac"
+
 -- Lua
-LUA_DEP		= "liblua-{v.5.0.2}"
-LUA_DIR		= DEPS_DIR.."/lua/lua-5.0.2"
-LUA_INC_DIR	= LUA_DIR.."/include"
+LUA_DEP		= "liblua-{v.5.1}"
+LUA_DIR		= DEPS_DIR.."/lua/lua-5.1"
+LUA_INC_DIR	= LUA_DIR.."/src"
 LUA_SRC_DIR	= LUA_DIR.."/src"
 
 -- Lua dll
-LUA_DLL_DEP		= "Lua-{v.5.0.2}"
+LUA_DLL_DEP		= "Lua-{v.5.1}"
 LUA_DLL_DIR		= DEPS_DIR.."/luadll"
-LUA_DLL_INC_DIR	= LUA_DLL_DIR.."/include"
+LUA_DLL_INC_DIR	= LUA_DLL_DIR.."/src"
 LUA_DLL_SRC_DIR	= LUA_DLL_DIR.."/src"
-
--- Lua51
-LUA51_DEP	= "liblua-{v.5.1}"
-LUA51_DIR	= DEPS_DIR.."/lua/lua-5.1"
-LUA51_INC_DIR	= LUA51_DIR.."/src"
-LUA51_SRC_DIR	= LUA51_DIR.."/src"
-
--- Lua tools
-LUA_INTERPRETER_DEP 	= "lua"
-LUA_COMPILER_DEP	= "luac"
 
 -- tolua++
 TOLUA_DEP		= "libtolua++-{v.1.0.92}"
