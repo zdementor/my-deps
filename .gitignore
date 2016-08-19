@@ -2,4 +2,4 @@
 *.user
 *.obj
 *.ncb
-premake/Src/obj
+premake/*/*/obj
