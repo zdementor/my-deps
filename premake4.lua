@@ -62,14 +62,14 @@ InitPackage4(LUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	{	LUA_SRC_DIR.."/*.c",
 		LUA_SRC_DIR.."/*.h",
 		LUA_INC_DIR.."/*.h",
-	}, {},
+	}, {LUA_SRC_DIR.."/lua.c", LUA_SRC_DIR.."/luac.c", LUA_SRC_DIR.."/print.c"},
 	{LUA_INC_DIR}, {})
 
 InitPackage4(LUA_INTERPRETER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	{LUA_DEP}, {}, {},
 	{}, {}, {},
 	{
-		LUA_SRC_DIR.."/lua/*.c",
+		LUA_SRC_DIR.."/lua.c",
 	}, {},
 	{LUA_INC_DIR}, BASE_LIB_PATH)
 
@@ -77,7 +77,8 @@ InitPackage4(LUA_COMPILER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	{LUA_DEP}, {}, {},
 	{}, {}, {},
 	{
-		LUA_SRC_DIR.."/luac/*.c",
+		LUA_SRC_DIR.."/luac.c",
+		LUA_SRC_DIR.."/print.c",
 	}, {},
 	{LUA_INC_DIR, LUA_SRC_DIR}, BASE_LIB_PATH)
 
@@ -89,7 +90,7 @@ InitPackage4(LUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 		LUA_SRC_DIR.."/*.c",
 		LUA_SRC_DIR.."/*.h",
 		LUA_INC_DIR.."/*.h",
-       }, {},
+       }, {LUA_SRC_DIR.."/lua.c", LUA_SRC_DIR.."/luac.c", LUA_SRC_DIR.."/print.c"},
        {LUA_INC_DIR}, {})
 
 InitPackage4(TOLUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",

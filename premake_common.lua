@@ -61,13 +61,13 @@ LUA_INTERPRETER_DEP = "lua"
 LUA_COMPILER_DEP	= "luac"
 
 -- Lua
-LUA_DEP		= "liblua-{v.5.1}"
-LUA_DIR		= DEPS_DIR.."/lua/lua-5.1"
+LUA_DEP		= "liblua-{v.5.1.4}"
+LUA_DIR		= DEPS_DIR.."/lua/lua-5.1.4"
 LUA_INC_DIR	= LUA_DIR.."/src"
 LUA_SRC_DIR	= LUA_DIR.."/src"
 
 -- Lua dll
-LUA_DLL_DEP		= "Lua-{v.5.1}"
+LUA_DLL_DEP		= "Lua-{v.5.1.4}"
 LUA_DLL_DIR		= DEPS_DIR.."/luadll"
 LUA_DLL_INC_DIR	= LUA_DLL_DIR.."/src"
 LUA_DLL_SRC_DIR	= LUA_DLL_DIR.."/src"
