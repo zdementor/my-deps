@@ -6,7 +6,7 @@
   <ToolFiles>
   </ToolFiles>
   <Configurations>
-    <Configuration Name="Release|Win32" OutputDirectory="..\..\..\bin" IntermediateDirectory="..\..\..\obj\PremakeRelease" ConfigurationType="1" InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops" UseOfMFC="0" ATLMinimizesCRunTimeLibraryUsage="false">
+    <Configuration Name="Release|Win32" OutputDirectory="..\..\..\..\bin" IntermediateDirectory="..\..\..\..\obj\PremakeRelease" ConfigurationType="1" InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops" UseOfMFC="0" ATLMinimizesCRunTimeLibraryUsage="false">
       <Tool Name="VCPreBuildEventTool" />
       <Tool Name="VCCustomBuildTool" />
       <Tool Name="VCXMLDataGeneratorTool" />
@@ -25,7 +25,7 @@
       <Tool Name="VCAppVerifierTool" />
       <Tool Name="VCPostBuildEventTool" />
     </Configuration>
-    <Configuration Name="Debug|Win32" OutputDirectory="..\..\..\bin" IntermediateDirectory="..\..\..\obj\PremakeDebug" ConfigurationType="1" InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops" UseOfMFC="0" ATLMinimizesCRunTimeLibraryUsage="false">
+    <Configuration Name="Debug|Win32" OutputDirectory="..\..\..\..\bin" IntermediateDirectory="..\..\..\..\obj\PremakeDebug" ConfigurationType="1" InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops" UseOfMFC="0" ATLMinimizesCRunTimeLibraryUsage="false">
       <Tool Name="VCPreBuildEventTool" />
       <Tool Name="VCCustomBuildTool" />
       <Tool Name="VCXMLDataGeneratorTool" />
