@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="Premake4"
 	ProjectGUID="{58C0AE14-C880-8C04-898C-8BED4A816B3C}"
 	RootNamespace="Premake4"
 	Keyword="Win32Proj"
+	TargetFrameworkVersion="0"
 	>
 	<Platforms>
 		<Platform
@@ -17,8 +18,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\bin\release"
-			IntermediateDirectory="obj\Release"
+			OutputDirectory="..\..\..\..\..\bin"
+			IntermediateDirectory="..\..\..\..\..\obj\Premake4Release"
 			ConfigurationType="1"
 			CharacterSet="2"
 			>
@@ -46,8 +47,8 @@
 				RuntimeLibrary="0"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
-				WarningLevel="4"
 				ProgramDataBaseFileName="$(OutDir)\premake4.pdb"
+				WarningLevel="4"
 				DebugInformationFormat="0"
 				CompileAs="1"
 			/>
@@ -94,16 +95,13 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\..\bin\debug"
-			IntermediateDirectory="obj\Debug"
+			OutputDirectory="..\..\..\..\..\bin"
+			IntermediateDirectory="..\..\..\..\..\obj\Premake4Release"
 			ConfigurationType="1"
 			CharacterSet="2"
 			>
@@ -132,8 +130,8 @@
 				RuntimeLibrary="1"
 				EnableFunctionLevelLinking="true"
 				UsePrecompiledHeader="0"
-				WarningLevel="4"
 				ProgramDataBaseFileName="$(OutDir)\premake4.pdb"
+				WarningLevel="4"
 				DebugInformationFormat="4"
 				CompileAs="1"
 			/>
@@ -151,11 +149,10 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="ole32.lib"
-				OutputFile="$(OutDir)\premake4.exe"
+				OutputFile="$(OutDir)\premake4_d.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="true"
-				ProgramDataBaseFileName="$(OutDir)\premake4.pdb"
 				SubSystem="1"
 				EntryPointSymbol="mainCRTStartup"
 				TargetMachine="1"
@@ -179,9 +176,6 @@
 				Name="VCAppVerifierTool"
 			/>
 			<Tool
-				Name="VCWebDeploymentTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
@@ -189,29 +183,8 @@
 	<References>
 	</References>
 	<Files>
-		<File
-			RelativePath="..\..\BUILD.txt"
-			>
-		</File>
-		<File
-			RelativePath="..\..\CHANGES.txt"
-			>
-		</File>
-		<File
-			RelativePath="..\..\LICENSE.txt"
-			>
-		</File>
-		<File
-			RelativePath="..\..\README.txt"
-			>
-		</File>
-		<File
-			RelativePath="..\..\premake4.lua"
-			>
-		</File>
 		<Filter
 			Name="scripts"
-			Filter=""
 			>
 			<File
 				RelativePath="..\..\scripts\embed.lua"
@@ -224,7 +197,6 @@
 		</Filter>
 		<Filter
 			Name="src"
-			Filter=""
 			>
 			<File
 				RelativePath="..\..\src\_manifest.lua"
@@ -236,11 +208,9 @@
 			</File>
 			<Filter
 				Name="actions"
-				Filter=""
 				>
 				<Filter
 					Name="clean"
-					Filter=""
 					>
 					<File
 						RelativePath="..\..\src\actions\clean\_clean.lua"
@@ -249,7 +219,6 @@
 				</Filter>
 				<Filter
 					Name="codeblocks"
-					Filter=""
 					>
 					<File
 						RelativePath="..\..\src\actions\codeblocks\_codeblocks.lua"
@@ -266,7 +235,6 @@
 				</Filter>
 				<Filter
 					Name="codelite"
-					Filter=""
 					>
 					<File
 						RelativePath="..\..\src\actions\codelite\_codelite.lua"
@@ -283,7 +251,6 @@
 				</Filter>
 				<Filter
 					Name="example"
-					Filter=""
 					>
 					<File
 						RelativePath="..\..\src\actions\example\_example.lua"
@@ -300,7 +267,6 @@
 				</Filter>
 				<Filter
 					Name="make"
-					Filter=""
 					>
 					<File
 						RelativePath="..\..\src\actions\make\_make.lua"
@@ -321,7 +287,6 @@
 				</Filter>
 				<Filter
 					Name="vstudio"
-					Filter=""
 					>
 					<File
 						RelativePath="..\..\src\actions\vstudio\_vstudio.lua"
@@ -382,7 +347,6 @@
 				</Filter>
 				<Filter
 					Name="xcode"
-					Filter=""
 					>
 					<File
 						RelativePath="..\..\src\actions\xcode\_xcode.lua"
@@ -404,7 +368,6 @@
 			</Filter>
 			<Filter
 				Name="base"
-				Filter=""
 				>
 				<File
 					RelativePath="..\..\src\base\action.lua"
@@ -481,15 +444,88 @@
 			</Filter>
 			<Filter
 				Name="host"
-				Filter=""
 				>
+				<File
+					RelativePath="..\..\src\host\os_chdir.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_copyfile.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_getcwd.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_getversion.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_is64bit.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_isdir.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_isfile.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_match.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_mkdir.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_pathsearch.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_rmdir.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_stat.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\os_uuid.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\path_isabsolute.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\premake.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\premake.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\premake_main.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\scripts.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\src\host\string_endswith.c"
+					>
+				</File>
 				<Filter
 					Name="lua-5.1.4"
-					Filter=""
 					>
 					<Filter
 						Name="src"
-						Filter=""
 						>
 						<File
 							RelativePath="..\..\src\host\lua-5.1.4\src\lapi.c"
@@ -701,86 +737,9 @@
 						</File>
 					</Filter>
 				</Filter>
-				<File
-					RelativePath="..\..\src\host\os_chdir.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_copyfile.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_getcwd.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_getversion.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_is64bit.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_isdir.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_isfile.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_match.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_mkdir.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_pathsearch.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_rmdir.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_stat.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\os_uuid.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\path_isabsolute.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\premake.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\premake.h"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\premake_main.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\scripts.c"
-					>
-				</File>
-				<File
-					RelativePath="..\..\src\host\string_endswith.c"
-					>
-				</File>
 			</Filter>
 			<Filter
 				Name="tools"
-				Filter=""
 				>
 				<File
 					RelativePath="..\..\src\tools\dotnet.lua"
@@ -806,322 +765,7 @@
 		</Filter>
 		<Filter
 			Name="tests"
-			Filter=""
 			>
-			<Filter
-				Name="actions"
-				Filter=""
-				>
-				<Filter
-					Name="codeblocks"
-					Filter=""
-					>
-					<File
-						RelativePath="..\..\tests\actions\codeblocks\codeblocks_files.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\codeblocks\environment_variables.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\codeblocks\test_filters.lua"
-						>
-					</File>
-				</Filter>
-				<Filter
-					Name="codelite"
-					Filter=""
-					>
-					<File
-						RelativePath="..\..\tests\actions\codelite\codelite_files.lua"
-						>
-					</File>
-				</Filter>
-				<Filter
-					Name="make"
-					Filter=""
-					>
-					<File
-						RelativePath="..\..\tests\actions\make\test_make_escaping.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\make\test_make_linking.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\make\test_make_pch.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\make\test_makesettings.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\make\test_wiidev.lua"
-						>
-					</File>
-				</Filter>
-				<File
-					RelativePath="..\..\tests\actions\test_clean.lua"
-					>
-				</File>
-				<Filter
-					Name="vstudio"
-					Filter=""
-					>
-					<Filter
-						Name="cs2002"
-						Filter=""
-						>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\cs2002\test_files.lua"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="cs2005"
-						Filter=""
-						>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\cs2005\projectelement.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\cs2005\projectsettings.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\cs2005\propertygroup.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\cs2005\test_files.lua"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="sln2005"
-						Filter=""
-						>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\sln2005\dependencies.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\sln2005\header.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\sln2005\layout.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\sln2005\platforms.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\sln2005\projectplatforms.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\sln2005\projects.lua"
-							>
-						</File>
-					</Filter>
-					<File
-						RelativePath="..\..\tests\actions\vstudio\test_vs200x_vcproj.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\vstudio\test_vs200x_vcproj_linker.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\vstudio\test_vs2010_flags.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\vstudio\test_vs2010_project_kinds.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\vstudio\test_vs2010_vcxproj.lua"
-						>
-					</File>
-					<Filter
-						Name="vc200x"
-						Filter=""
-						>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc200x\debugdir.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc200x\header.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc200x\test_files.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc200x\test_filters.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc200x\test_mfc.lua"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="vc2010"
-						Filter=""
-						>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_config_props.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_debugdir.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_files.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_filters.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_header.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_link_settings.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_links.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_mfc.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_output_props.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_pch.lua"
-							>
-						</File>
-						<File
-							RelativePath="..\..\tests\actions\vstudio\vc2010\test_project_refs.lua"
-							>
-						</File>
-					</Filter>
-				</Filter>
-				<Filter
-					Name="xcode"
-					Filter=""
-					>
-					<File
-						RelativePath="..\..\tests\actions\xcode\test_file_references.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\xcode\test_xcode4_project.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\xcode\test_xcode4_workspace.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\xcode\test_xcode_common.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\xcode\test_xcode_dependencies.lua"
-						>
-					</File>
-					<File
-						RelativePath="..\..\tests\actions\xcode\test_xcode_project.lua"
-						>
-					</File>
-				</Filter>
-			</Filter>
-			<Filter
-				Name="baking"
-				Filter=""
-				>
-				<File
-					RelativePath="..\..\tests\baking\test_merging.lua"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="base"
-				Filter=""
-				>
-				<File
-					RelativePath="..\..\tests\base\test_action.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_api.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_baking.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_config.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_config_bug.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_location.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_os.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_path.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_premake_command.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_table.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\base\test_tree.lua"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="folder"
-				Filter=""
-				>
-				<File
-					RelativePath="..\..\tests\folder\ok.lua"
-					>
-				</File>
-			</Filter>
 			<File
 				RelativePath="..\..\tests\pepperfish_profiler.lua"
 				>
@@ -1130,19 +774,6 @@
 				RelativePath="..\..\tests\premake4.lua"
 				>
 			</File>
-			<Filter
-				Name="project"
-				Filter=""
-				>
-				<File
-					RelativePath="..\..\tests\project\test_eachfile.lua"
-					>
-				</File>
-				<File
-					RelativePath="..\..\tests\project\test_vpaths.lua"
-					>
-				</File>
-			</Filter>
 			<File
 				RelativePath="..\..\tests\test_dofile.lua"
 				>
@@ -1196,8 +827,319 @@
 				>
 			</File>
 			<Filter
+				Name="actions"
+				>
+				<File
+					RelativePath="..\..\tests\actions\test_clean.lua"
+					>
+				</File>
+				<Filter
+					Name="codeblocks"
+					>
+					<File
+						RelativePath="..\..\tests\actions\codeblocks\codeblocks_files.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\codeblocks\environment_variables.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\codeblocks\test_filters.lua"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="codelite"
+					>
+					<File
+						RelativePath="..\..\tests\actions\codelite\codelite_files.lua"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="make"
+					>
+					<File
+						RelativePath="..\..\tests\actions\make\test_make_escaping.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\make\test_make_linking.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\make\test_make_pch.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\make\test_makesettings.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\make\test_wiidev.lua"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="vstudio"
+					>
+					<File
+						RelativePath="..\..\tests\actions\vstudio\test_vs200x_vcproj.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\vstudio\test_vs200x_vcproj_linker.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\vstudio\test_vs2010_flags.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\vstudio\test_vs2010_project_kinds.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\vstudio\test_vs2010_vcxproj.lua"
+						>
+					</File>
+					<Filter
+						Name="cs2002"
+						>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\cs2002\test_files.lua"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="cs2005"
+						>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\cs2005\projectelement.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\cs2005\projectsettings.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\cs2005\propertygroup.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\cs2005\test_files.lua"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="sln2005"
+						>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\sln2005\dependencies.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\sln2005\header.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\sln2005\layout.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\sln2005\platforms.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\sln2005\projectplatforms.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\sln2005\projects.lua"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="vc200x"
+						>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc200x\debugdir.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc200x\header.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc200x\test_files.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc200x\test_filters.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc200x\test_mfc.lua"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="vc2010"
+						>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_config_props.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_debugdir.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_files.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_filters.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_header.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_link_settings.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_links.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_mfc.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_output_props.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_pch.lua"
+							>
+						</File>
+						<File
+							RelativePath="..\..\tests\actions\vstudio\vc2010\test_project_refs.lua"
+							>
+						</File>
+					</Filter>
+				</Filter>
+				<Filter
+					Name="xcode"
+					>
+					<File
+						RelativePath="..\..\tests\actions\xcode\test_file_references.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\xcode\test_xcode4_project.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\xcode\test_xcode4_workspace.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\xcode\test_xcode_common.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\xcode\test_xcode_dependencies.lua"
+						>
+					</File>
+					<File
+						RelativePath="..\..\tests\actions\xcode\test_xcode_project.lua"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="baking"
+				>
+				<File
+					RelativePath="..\..\tests\baking\test_merging.lua"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="base"
+				>
+				<File
+					RelativePath="..\..\tests\base\test_action.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_api.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_baking.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_config.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_config_bug.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_location.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_os.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_path.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_premake_command.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_table.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\base\test_tree.lua"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="folder"
+				>
+				<File
+					RelativePath="..\..\tests\folder\ok.lua"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="project"
+				>
+				<File
+					RelativePath="..\..\tests\project\test_eachfile.lua"
+					>
+				</File>
+				<File
+					RelativePath="..\..\tests\project\test_vpaths.lua"
+					>
+				</File>
+			</Filter>
+			<Filter
 				Name="tools"
-				Filter=""
 				>
 				<File
 					RelativePath="..\..\tests\tools\test_gcc.lua"
@@ -1205,6 +1147,26 @@
 				</File>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath="..\..\BUILD.txt"
+			>
+		</File>
+		<File
+			RelativePath="..\..\CHANGES.txt"
+			>
+		</File>
+		<File
+			RelativePath="..\..\LICENSE.txt"
+			>
+		</File>
+		<File
+			RelativePath="..\..\premake4.lua"
+			>
+		</File>
+		<File
+			RelativePath="..\..\README.txt"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

@@ -262,6 +262,112 @@ function InitPackage(name, path, lang, kind, name_suffix,
 
 end
 
+
+function InitPackage4(_name, _path, _lang, _kind, _name_suffix,
+	_prjdeps, _deps, _sysdeps,
+	_common_defines, _release_defines, _debug_defines,
+	_files, _excludes, _inc_paths, _lib_paths,
+	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts)
+
+	io.write(string.format("Creating package %s ...\n", _name))
+
+	local kind4 = {
+		["exe"] = "WindowedApp",
+		["dll"] = "SharedLib",
+		["lib"] = "StaticLib",
+		}
+
+	local fullname = _name
+	if _name_suffix then
+		fullname = _name.._name_suffix
+	end
+
+	configurations { "Debug", "Release" }
+
+	project(fullname)
+		kind(kind4[_kind])
+		basedir(_path)
+		language(_lang)
+		targetdir(rootdir.."/bin")
+
+		files(_files)
+		excludes(_excludes)
+
+		includedirs(_inc_paths)
+		libdirs(_lib_paths)
+
+		local rel_links = {}
+		local dbg_links = {}
+		table.insert(rel_links, _deps)
+		for key, value in pairs(_deps) do
+			table.insert(dbg_links, value.."_d")
+		end
+		table.insert(rel_links, _sysdeps)
+		table.insert(dbg_links, _sysdeps)
+		table.insert(rel_links, _prjdeps)
+		table.insert(dbg_links, _prjdeps)
+
+		local rel_linkoptions = {}
+		local dbg_linkoptions = {}
+		table.insert(rel_linkoptions, _link_opts or {})
+		table.insert(dbg_linkoptions, _dbg_link_opts or (_link_opts or {}))
+		-- flags for VTune
+		--table.insert(rel_linkoptions, {"/FIXED:NO"})
+		--table.insert(dbg_linkoptions, {"/FIXED:NO"})
+
+		local rel_buildoptions = {}
+		local dbg_buildoptions = {}
+		table.insert(rel_buildoptions, _build_opts or {})
+		table.insert(dbg_buildoptions, _dbg_build_opts or (_build_opts or {}))
+
+		local rel_flags = {}
+		local dbg_flags = {}
+		table.insert(dbg_flags, "NoPCH")
+		table.insert(rel_flags, "NoPCH")
+		table.insert(rel_flags,
+			"OptimizeSpeed"
+			--"OptimizeSize"
+			)
+		table.insert(rel_flags, "No64BitChecks")
+		table.insert(rel_flags, "WinMain")
+		table.insert(dbg_flags, "Symbols")
+
+		local rel_defines = {}
+		local dbg_defines = {}
+		table.insert(rel_defines, _common_defines)
+		table.insert(dbg_defines, _common_defines)
+		table.insert(rel_defines, _release_defines)
+		table.insert(dbg_defines, _debug_defines)
+		if os.is("windows") then
+			table.insert(dbg_defines, {"_WIN32", "WIN32"})
+			table.insert(dbg_defines, {"_DEBUG"})
+			table.insert(rel_defines, {"_WIN32", "WIN32"})
+			table.insert(rel_defines, {"_NDEBUG", "NDEBUG"})
+			table.insert(rel_defines, {"_CRT_SECURE_NO_DEPRECATE", "_SCL_SECURE_NO_WARNINGS"})
+		elseif os.is("linux") then
+			table.insert(rel_defines, {"_UNIX"})
+			table.insert(dbg_defines, {"_UNIX"})
+		end
+
+		configuration "Release"
+			targetname(fullname)
+			objdir(rootdir.."/obj/"..fullname.."/Release")
+			defines(rel_defines)
+			flags(rel_flags)
+			buildoptions(rel_buildoptions)
+			linkoptions(rel_linkoptions)
+			links(rel_links)
+
+		configuration "Debug"
+			targetname(fullname.."_d")
+			objdir(rootdir.."/obj/"..fullname.."/Debug")
+			defines(dbg_defines)
+			flags(dbg_flags)
+			buildoptions(dbg_buildoptions)
+			linkoptions(dbg_linkoptions)
+			links(dbg_links)
+end
+
 BASE_LIB_PATH =
 { DEPS_DIR.."/lib/static", DEPS_DIR.."/lib/dynamic", rootdir.."/bin"}
 
