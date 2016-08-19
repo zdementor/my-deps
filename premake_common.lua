@@ -267,7 +267,8 @@ function InitPackage4(_name, _path, _lang, _kind, _name_suffix,
 	_prjdeps, _deps, _sysdeps,
 	_common_defines, _release_defines, _debug_defines,
 	_files, _excludes, _inc_paths, _lib_paths,
-	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts)
+	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
+	_main, _dbg_main)
 
 	io.write(string.format("Creating package %s ...\n", _name))
 
@@ -329,7 +330,20 @@ function InitPackage4(_name, _path, _lang, _kind, _name_suffix,
 			--"OptimizeSize"
 			)
 		table.insert(rel_flags, "No64BitChecks")
-		table.insert(rel_flags, "WinMain")
+		if os.is("windows") then
+			if _main == "WinMain"  then
+				table.insert(rel_flags, "WinMain")
+				table.insert(rel_linkoptions, "/SUBSYSTEM:WINDOWS")
+			else
+				table.insert(rel_linkoptions, "/SUBSYSTEM:CONSOLE")
+			end
+			if _dbg_main == "WinMain" then
+				table.insert(dbg_flags, "WinMain")
+				table.insert(dbg_linkoptions, "/SUBSYSTEM:WINDOWS")
+			else
+				table.insert(dbg_linkoptions, "/SUBSYSTEM:CONSOLE")
+			end
+		end
 		table.insert(dbg_flags, "Symbols")
 
 		local rel_defines = {}
