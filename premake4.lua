@@ -3,12 +3,11 @@ rootdir = ".."
 
 dofile(rootdir.."/deps/premake_common.lua")
 
-local DEPS_PRJ_DIR = rootdir.."/build/"
+local DEPS_PRJ_NAME = "MyEngine_Depends"
+local DEPS_PRJ_DIR  = rootdir.."/build"
 
-solution("MyEngine_Depends")
-basedir(DEPS_PRJ_DIR)
-
-InitPackage4(FTYPE_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	FTYPE_DEP, "c++", "dll", "",
 	{}, {}, {},
 	{}, {}, {},
 	{
@@ -47,7 +46,8 @@ InitPackage4(FTYPE_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 	}, {},
 	{FTYPE_INC_DIR}, BASE_LIB_PATH)
 
-InitPackage4(PCRE_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	PCRE_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{"PCRE_STATIC"}, {}, {},
 	{
@@ -56,7 +56,8 @@ InitPackage4(PCRE_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	}, {PCRE_SRC_DIR.."/ucptable.c", PCRE_SRC_DIR.."/ucptypetable.c",},
 	{PCRE_INC_DIR}, BASE_LIB_PATH)
 
-InitPackage4(LUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	LUA_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{"LUA_OPNAMES"}, {}, {},
 	{	LUA_SRC_DIR.."/*.c",
@@ -65,7 +66,8 @@ InitPackage4(LUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	}, {LUA_SRC_DIR.."/lua.c", LUA_SRC_DIR.."/luac.c", LUA_SRC_DIR.."/print.c"},
 	{LUA_INC_DIR}, {})
 
-InitPackage4(LUA_INTERPRETER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	LUA_INTERPRETER_DEP, "c++", "exe", "",
 	{LUA_DEP}, {}, {},
 	{}, {}, {},
 	{
@@ -73,7 +75,8 @@ InitPackage4(LUA_INTERPRETER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	}, {},
 	{LUA_INC_DIR}, BASE_LIB_PATH)
 
-InitPackage4(LUA_COMPILER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	LUA_COMPILER_DEP, "c++", "exe", "",
 	{LUA_DEP}, {}, {},
 	{}, {}, {},
 	{
@@ -82,7 +85,8 @@ InitPackage4(LUA_COMPILER_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	}, {},
 	{LUA_INC_DIR, LUA_SRC_DIR}, BASE_LIB_PATH)
 
-InitPackage4(LUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	LUA_DLL_DEP, "c++", "dll", "",
 	{}, {}, {},
 	{"LUA_BUILD_AS_DLL",}, {}, {},
 	{	LUA_DLL_SRC_DIR.."/*.cpp",
@@ -93,7 +97,8 @@ InitPackage4(LUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
        }, {LUA_SRC_DIR.."/lua.c", LUA_SRC_DIR.."/luac.c", LUA_SRC_DIR.."/print.c"},
        {LUA_INC_DIR}, {})
 
-InitPackage4(TOLUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	TOLUA_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{"TOLUA_STATIC"}, {"TOLUA_RELEASE"}, {},
 	{
@@ -103,19 +108,21 @@ InitPackage4(TOLUA_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	}, {},
 	{LUA_INC_DIR, TOLUA_INC_DIR}, {})
 
-InitPackage4(TOLUA_DLL_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
-       {LUA_DLL_DEP}, {}, {},
-       {"TOLUA_EXPORTS"}, {"TOLUA_RELEASE"}, {},
-       {
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	TOLUA_DLL_DEP, "c++", "dll", "",
+	{LUA_DLL_DEP}, {}, {},
+	{"TOLUA_EXPORTS"}, {"TOLUA_RELEASE"}, {},
+	{
 		TOLUA_INC_DIR.."/*.h",
 		TOLUA_DLL_INC_DIR.."/*.h",
 		TOLUA_DLL_SRC_DIR.."/*.cpp",
 		TOLUA_SRC_DIR.."/lib/*.c",
 		TOLUA_SRC_DIR.."/lib/*.h",
-       }, {},
-       {LUA_INC_DIR, TOLUA_INC_DIR}, {})
+	}, {},
+	{LUA_INC_DIR, TOLUA_INC_DIR}, {})
 
-InitPackage4(TOLUA_APP_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	TOLUA_APP_DEP, "c++", "exe", "",
 	{LUA_DEP}, {}, {},
 	{"TOLUA_STATIC"}, {"TOLUA_RELEASE"}, {},
 	{
@@ -136,7 +143,8 @@ if os.is("windows") then
 		JPEG_SRC_DIR.."/jmemname.c"}
 end
 
-InitPackage4(JPEG_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	JPEG_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{}, {}, {},
 	{
@@ -153,7 +161,8 @@ InitPackage4(JPEG_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	},
 	{JPEG_INC_DIR}, {})
 
-InitPackage4(ZLIB_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	ZLIB_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{}, {}, {},
 	{
@@ -162,7 +171,8 @@ InitPackage4(ZLIB_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	}, {},
 	{ZLIB_INC_DIR}, {})
 
-InitPackage4(PNG_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	PNG_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{}, {}, {},
 	{
@@ -179,7 +189,8 @@ InitPackage4(PNG_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 		PNG_INC_DIR.."/VisualPng.c",},
 	{PNG_INC_DIR, ZLIB_INC_DIR, DEPS_DIR}, {})
 
-InitPackage4(MINI_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	MINI_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{"NOOGL"}, {}, {},
 	{
@@ -189,7 +200,8 @@ InitPackage4(MINI_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	}, {MINI_SRC_DIR.."/example.cpp", MINI_SRC_DIR.."/viewer.cpp"},
 	{MINI_INC_DIR}, {})
 
-InitPackage4(OGG_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	OGG_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{}, {}, {},
 	{
@@ -199,7 +211,8 @@ InitPackage4(OGG_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	}, {},
 	{OGG_INC_DIR}, {})
 
-InitPackage4(VORB_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	VORB_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{}, {}, {},
 	{
@@ -214,7 +227,8 @@ InitPackage4(VORB_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	},
 	{OGG_INC_DIR, VORB_INC_DIR}, {})
 
-InitPackage4(OGGENC_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	OGGENC_DEP, "c++", "exe", "",
 	{OGG_DEP, VORB_DEP}, {}, {},
 	{}, {}, {},
 	{
@@ -231,7 +245,8 @@ InitPackage4(OGGENC_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	},
 	{VORB_INC_DIR, OGG_INC_DIR, VORB_TOOLS_DIR.."/include"}, {})
 
-InitPackage4(OGGDEC_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	OGGDEC_DEP, "c++", "exe", "",
 	{OGG_DEP, VORB_DEP}, {}, {},
 	{}, {}, {},
 	{
@@ -243,7 +258,8 @@ InitPackage4(OGGDEC_DEP, DEPS_PRJ_DIR, "c++", "exe", "",
 	}, {},
 	{VORB_INC_DIR, OGG_INC_DIR, VORB_TOOLS_DIR.."/include"}, {})
 
-InitPackage4(CAL3D_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	CAL3D_DEP, "c++", "dll", "",
 	{}, {}, {},
 	{"CAL3D_EXPORTS"}, {}, {},
 	{
@@ -252,7 +268,8 @@ InitPackage4(CAL3D_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 	}, {},
 	{CAL3D_INC_DIR}, {})
 
-InitPackage4(CAL3D_MAX7EXP_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	CAL3D_MAX7EXP_DEP, "c++", "dll", "",
 	{CAL3D_DEP}, {}, {"core", "geom", "gfx", "mesh", "maxutil", "maxscrpt", "paramblk2"},
 	{"_AFXDLL"}, {}, {},
 	{
@@ -274,7 +291,8 @@ InitPackage4(CAL3D_MAX7EXP_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 		MAX7SDK_INC_DIR.."/CS"},
 	{	MAX7SDK_LIBRARIES_DIR} )
 
-InitPackage4(ODE_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	ODE_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{"ODE_LIB"}, {}, {},
 	{
@@ -294,7 +312,8 @@ InitPackage4(ODE_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
 	},
 	{ODE_INC_DIR, ODE_DIR, ODE_GIMPACT_DIR.."/include", ODE_OPCODE_DIR}, {})
 
-InitPackage4(CEGUIBASE071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	CEGUIBASE071_DEP, "c++", "dll", "",
 	{PCRE_DEP, FTYPE_DEP}, {}, {"winmm"},
 	{"HAVE_CONFIG_H", "PCRE_STATIC", "CEGUIBASE_EXPORTS"}, {}, {},
 	{
@@ -309,7 +328,8 @@ InitPackage4(CEGUIBASE071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 	{CEGUI071_INC_DIR, FTYPE_INC_DIR, PCRE_INC_DIR},
 		BASE_LIB_PATH)
 
-InitPackage4(CEGUILUA071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	CEGUILUA071_DEP, "c++", "dll", "",
 	{CEGUIBASE071_DEP, TOLUA_DLL_DEP, LUA_DLL_DEP}, {}, {},
 	{"HAVE_CONFIG_H", "CEGUILUA_EXPORTS", "TOLUA_RELEASE"}, {}, {},
 	{	CEGUI071_LUA_SRC_DIR.."/*.cpp",
@@ -319,7 +339,8 @@ InitPackage4(CEGUILUA071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 	{CEGUI071_INC_DIR, CEGUI071_LUA_INC_DIR, LUA_INC_DIR, TOLUA_INC_DIR},
 		BASE_LIB_PATH)
 
-InitPackage4(CEGUIXML071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	CEGUIXML071_DEP, "c++", "dll", "",
 	{CEGUIBASE071_DEP}, {}, {},
 	{"HAVE_CONFIG_H", "CEGUITINYXMLPARSER_EXPORTS"}, {}, {},
 	{
@@ -331,7 +352,8 @@ InitPackage4(CEGUIXML071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 	{CEGUI071_INC_DIR, CEGUI071_XML_INC_DIR},
 		BASE_LIB_PATH)
 
-InitPackage4(CEGUIFAL071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	CEGUIFAL071_DEP, "c++", "dll", "",
 	{CEGUIBASE071_DEP}, {}, {},
 	{"HAVE_CONFIG_H", "FALAGARDWRBASE_EXPORTS", "CEGUIWRMODULE_EXPORTS"}, {}, {},
 	{
@@ -341,7 +363,8 @@ InitPackage4(CEGUIFAL071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 	{CEGUI071_INC_DIR, CEGUI071_WR_INC_DIR},
 		BASE_LIB_PATH)
 
-InitPackage4(CEGUIIMG071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	CEGUIIMG071_DEP, "c++", "dll", "",
 	{CEGUIBASE071_DEP}, {}, {},
 	{"HAVE_CONFIG_H", "CEGUITGAIMAGECODEC_EXPORTS"}, {}, {},
 	{
@@ -351,7 +374,8 @@ InitPackage4(CEGUIIMG071_DEP, DEPS_PRJ_DIR, "c++", "dll", "",
 	{CEGUI071_INC_DIR, CEGUI071_CODEC_INC_DIR},
 		BASE_LIB_PATH)
 
-InitPackage4(DEVIL_DEP, DEPS_PRJ_DIR, "c++", "lib", "",
+InitPackage4(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+	DEVIL_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{"IL_STATIC_LIB"}, {}, {},
 	{

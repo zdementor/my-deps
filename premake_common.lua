@@ -161,14 +161,32 @@ function CollectStrings(tbl, res_tbl)
 	end
 end
 
-function InitPackage4(_name, _path, _lang, _kind, _name_suffix,
+local function InitPackage4Arch(_arch, _solname, _solpath,
+	_prjname, _lang, _kind, _name_suffix,
 	_prjdeps, _deps, _sysdeps,
 	_common_defines, _release_defines, _debug_defines,
 	_files, _excludes, _inc_paths, _lib_paths,
 	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
 	_main, _dbg_main)
 
-	io.write(string.format("Creating package %s ...\n", _name))
+	local archstr = "x32"
+
+	if _arch == "x64" then
+		archstr = "x64"
+	end
+
+	io.write(string.format("Creating %s package %s ->%s ...\n", archstr, _solname, _prjname))
+
+	_solpath = _solpath.."/"..archstr
+	_solname = 	_solname.."_"..archstr
+
+	solution(_solname)
+	basedir(_solpath)
+	configurations {"Release", "Debug"}
+
+	if _arch == "x64" then
+		platforms { _arch }
+	end
 
 	local kind4 = {
 		["exe"] = "WindowedApp",
@@ -176,35 +194,35 @@ function InitPackage4(_name, _path, _lang, _kind, _name_suffix,
 		["lib"] = "StaticLib",
 		}
 
-	local fullname = _name
+	local fullname = _prjname
 	if _name_suffix then
-		fullname = _name.._name_suffix
+		fullname = _prjname.._name_suffix
 	end
-
-	configurations { "Debug", "Release" }
 
 	project(fullname)
 		kind(kind4[_kind])
-		basedir(_path)
+		basedir(_solpath)
 		language(_lang)
-		targetdir(rootdir.."/bin")
+		targetdir(rootdir.."/bin/"..archstr)
 
 		files(_files)
 		excludes(_excludes)
 
 		includedirs(_inc_paths)
-		libdirs(_lib_paths)
+		libdirs({_lib_paths, rootdir.."/bin/"..archstr})
 
 		local rel_links = {}
 		local dbg_links = {}
-		table.insert(rel_links, _deps)
 		for key, value in pairs(_deps) do
+			table.insert(rel_links, value)
 			table.insert(dbg_links, value.."_d")
 		end
 		table.insert(rel_links, _sysdeps)
 		table.insert(dbg_links, _sysdeps)
-		table.insert(rel_links, _prjdeps)
-		table.insert(dbg_links, _prjdeps)
+		for key, value in pairs(_prjdeps) do
+			table.insert(rel_links, value)
+			table.insert(dbg_links, value.."_d")
+		end
 
 		local rel_linkoptions = {}
 		local dbg_linkoptions = {}
@@ -261,23 +279,49 @@ function InitPackage4(_name, _path, _lang, _kind, _name_suffix,
 			table.insert(dbg_defines, {"_UNIX"})
 		end
 
-		configuration "Release"
+		configuration("Release")
 			targetname(fullname)
-			objdir(rootdir.."/obj/"..fullname.."/Release")
+			objdir(rootdir.."/obj/"..fullname.."/Release/"..archstr)
 			defines(rel_defines)
 			flags(rel_flags)
 			buildoptions(rel_buildoptions)
 			linkoptions(rel_linkoptions)
 			links(rel_links)
 
-		configuration "Debug"
+		configuration("Debug")
 			targetname(fullname.."_d")
-			objdir(rootdir.."/obj/"..fullname.."/Debug")
+			objdir(rootdir.."/obj/"..fullname.."/Debug/"..archstr)
 			defines(dbg_defines)
 			flags(dbg_flags)
 			buildoptions(dbg_buildoptions)
 			linkoptions(dbg_linkoptions)
 			links(dbg_links)
+end
+
+function InitPackage4(_solname, _solpath,
+	_prjname, _lang, _kind, _name_suffix,
+	_prjdeps, _deps, _sysdeps,
+	_common_defines, _release_defines, _debug_defines,
+	_files, _excludes, _inc_paths, _lib_paths,
+	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
+	_main, _dbg_main)
+
+	local arch = {
+		[1] = nil,
+		[2] = "x64"
+	}
+
+	for i = 1, 2 do
+		InitPackage4Arch(
+			arch[i],
+			_solname, _solpath,
+			_prjname, _lang, _kind, _name_suffix,
+			_prjdeps, _deps, _sysdeps,
+			_common_defines, _release_defines, _debug_defines,
+			_files, _excludes, _inc_paths, _lib_paths,
+			_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
+			_main, _dbg_main)
+	end
 end
 
 BASE_LIB_PATH =
