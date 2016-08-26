@@ -150,6 +150,14 @@ MAX7SDK_LIBRARIES_DIR	= MAX7SDK_DIR.."/lib"
 
 OAL_INC_DIR	= DEPS_DIR.."/openal/include/al"
 
+local is64 = false
+
+for i = 1, table.getn(_ARGS) do
+	if tostring(_ARGS[1]) == "arch64" then
+		is64  = true
+	end
+end
+
 function CollectStrings(tbl, res_tbl)
 	for key, value in pairs(tbl) do
 		if type(value) == "string" then
@@ -161,7 +169,7 @@ function CollectStrings(tbl, res_tbl)
 	end
 end
 
-local function InitPackage4Arch(_arch, _solname, _solpath,
+function InitPackage(_solname, _solpath,
 	_prjname, _lang, _kind, _name_suffix,
 	_prjdeps, _deps, _sysdeps,
 	_common_defines, _release_defines, _debug_defines,
@@ -171,21 +179,20 @@ local function InitPackage4Arch(_arch, _solname, _solpath,
 
 	local archstr = "x32"
 
-	if _arch == "x64" then
+	if is64  then
 		archstr = "x64"
 	end
 
-	io.write(string.format("Creating %s package %s ->%s ...\n", archstr, _solname, _prjname))
-
 	_solpath = _solpath.."/"..archstr
-	_solname = 	_solname.."_"..archstr
+
+	io.write(string.format("Creating project (%s) %s -> %s ...\n", archstr, _solname, _prjname))
 
 	solution(_solname)
 	basedir(_solpath)
 	configurations {"Release", "Debug"}
 
-	if _arch == "x64" then
-		platforms { _arch }
+	if archstr == "x64" then
+		platforms { archstr }
 	end
 
 	local kind4 = {
@@ -281,7 +288,7 @@ local function InitPackage4Arch(_arch, _solname, _solpath,
 
 		configuration("Release")
 			targetname(fullname)
-			objdir(rootdir.."/obj/"..fullname.."/Release/"..archstr)
+			objdir(rootdir.."/obj/"..archstr.."/"..fullname.."/Release")
 			defines(rel_defines)
 			flags(rel_flags)
 			buildoptions(rel_buildoptions)
@@ -290,7 +297,7 @@ local function InitPackage4Arch(_arch, _solname, _solpath,
 
 		configuration("Debug")
 			targetname(fullname.."_d")
-			objdir(rootdir.."/obj/"..fullname.."/Debug/"..archstr)
+			objdir(rootdir.."/obj/"..archstr.."/"..fullname.."/Debug")
 			defines(dbg_defines)
 			flags(dbg_flags)
 			buildoptions(dbg_buildoptions)
@@ -298,7 +305,7 @@ local function InitPackage4Arch(_arch, _solname, _solpath,
 			links(dbg_links)
 end
 
-function InitPackage4(_solname, _solpath,
+function InitPackage32(_solname, _solpath,
 	_prjname, _lang, _kind, _name_suffix,
 	_prjdeps, _deps, _sysdeps,
 	_common_defines, _release_defines, _debug_defines,
@@ -306,15 +313,27 @@ function InitPackage4(_solname, _solpath,
 	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
 	_main, _dbg_main)
 
-	local arch = {
-		[1] = nil,
-		[2] = "x64"
-	}
+	if not is64 then
+		InitPackage(_solname, _solpath,
+			_prjname, _lang, _kind, _name_suffix,
+			_prjdeps, _deps, _sysdeps,
+			_common_defines, _release_defines, _debug_defines,
+			_files, _excludes, _inc_paths, _lib_paths,
+			_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
+			_main, _dbg_main)
+	end
+end
 
-	for i = 1, 2 do
-		InitPackage4Arch(
-			arch[i],
-			_solname, _solpath,
+function InitPackage64(_solname, _solpath,
+	_prjname, _lang, _kind, _name_suffix,
+	_prjdeps, _deps, _sysdeps,
+	_common_defines, _release_defines, _debug_defines,
+	_files, _excludes, _inc_paths, _lib_paths,
+	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
+	_main, _dbg_main)
+
+	if is64 then
+		InitPackage(_solname, _solpath,
 			_prjname, _lang, _kind, _name_suffix,
 			_prjdeps, _deps, _sysdeps,
 			_common_defines, _release_defines, _debug_defines,
