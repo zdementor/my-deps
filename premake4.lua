@@ -1,10 +1,12 @@
 
-rootdir = ".."
+ROOT_DIR = ".."
 
-dofile(rootdir.."/deps/premake_common.lua")
+dofile(ROOT_DIR.."/deps/premake_common.lua")
 
 local DEPS_PRJ_NAME = "MyEngine_Depends"
-local DEPS_PRJ_DIR  = rootdir.."/build"
+local DEPS_PRJ_DIR  = ROOT_DIR.."/build"
+
+local DEPS_LIB_DIR = { LIBS_DIR }
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	FTYPE_DEP, "c++", "dll", "",
@@ -44,7 +46,7 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		DEPS_DIR.."/freetypedll/src/*.cpp",
 		DEPS_DIR.."/freetypedll/src/*.def",
 	}, {},
-	{FTYPE_INC_DIR}, BASE_LIB_PATH)
+	{FTYPE_INC_DIR}, DEPS_LIB_DIR)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	PCRE_DEP, "c++", "lib", "",
@@ -53,18 +55,27 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	{
 		PCRE_SRC_DIR.."/*.c",
 		PCRE_SRC_DIR.."/*.h",
-	}, {PCRE_SRC_DIR.."/ucptable.c", PCRE_SRC_DIR.."/ucptypetable.c",},
-	{PCRE_INC_DIR}, BASE_LIB_PATH)
+	},
+		{ PCRE_SRC_DIR.."/ucptable.c", PCRE_SRC_DIR.."/ucptypetable.c", },
+	{ PCRE_INC_DIR },
+		DEPS_LIB_DIR
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	LUA_DEP, "c++", "lib", "",
 	{}, {}, {},
 	{"LUA_OPNAMES"}, {}, {},
-	{	LUA_SRC_DIR.."/*.c",
+	{
+		LUA_SRC_DIR.."/*.c",
 		LUA_SRC_DIR.."/*.h",
 		LUA_INC_DIR.."/*.h",
-	}, {LUA_SRC_DIR.."/lua.c", LUA_SRC_DIR.."/luac.c", LUA_SRC_DIR.."/print.c"},
-	{LUA_INC_DIR}, {})
+		LUA_ADD_SRC_DIR.."/*.c",
+		LUA_ADD_INC_DIR.."/*.h",
+	},
+		{ LUA_SRC_DIR.."/lua.c", LUA_SRC_DIR.."/luac.c", LUA_SRC_DIR.."/print.c" },
+	{ LUA_INC_DIR, LUA_ADD_INC_DIR },
+		{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	LUA_INTERPRETER_DEP, "c++", "exe", "",
@@ -72,8 +83,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	{}, {}, {},
 	{
 		LUA_SRC_DIR.."/lua.c",
-	}, {},
-	{LUA_INC_DIR}, BASE_LIB_PATH)
+	},
+		{},
+	{ LUA_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	LUA_COMPILER_DEP, "c++", "exe", "",
@@ -82,20 +96,29 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	{
 		LUA_SRC_DIR.."/luac.c",
 		LUA_SRC_DIR.."/print.c",
-	}, {},
-	{LUA_INC_DIR, LUA_SRC_DIR}, BASE_LIB_PATH)
+	},
+		{},
+	{ LUA_INC_DIR, LUA_SRC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	LUA_DLL_DEP, "c++", "dll", "",
 	{}, {}, {},
 	{"LUA_BUILD_AS_DLL",}, {}, {},
-	{	LUA_DLL_SRC_DIR.."/*.cpp",
+	{
+		LUA_DLL_SRC_DIR.."/*.cpp",
 		LUA_DLL_INC_DIR.."/*.h",
 		LUA_SRC_DIR.."/*.c",
 		LUA_SRC_DIR.."/*.h",
 		LUA_INC_DIR.."/*.h",
-       }, {LUA_SRC_DIR.."/lua.c", LUA_SRC_DIR.."/luac.c", LUA_SRC_DIR.."/print.c"},
-       {LUA_INC_DIR}, {})
+		LUA_ADD_SRC_DIR.."/*.c",
+		LUA_ADD_INC_DIR.."/*.h",
+ 	},
+		{ LUA_SRC_DIR.."/lua.c", LUA_SRC_DIR.."/luac.c", LUA_SRC_DIR.."/print.c" },
+	{ LUA_INC_DIR, LUA_ADD_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	TOLUA_DEP, "c++", "lib", "",
@@ -105,8 +128,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		TOLUA_INC_DIR.."/*.h",
 		TOLUA_SRC_DIR.."/lib/*.c",
 		TOLUA_SRC_DIR.."/lib/*.h",
-	}, {},
-	{LUA_INC_DIR, TOLUA_INC_DIR}, {})
+	},
+		{},
+	{ LUA_INC_DIR, TOLUA_INC_DIR },
+		{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	TOLUA_DLL_DEP, "c++", "dll", "",
@@ -118,8 +144,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		TOLUA_DLL_SRC_DIR.."/*.cpp",
 		TOLUA_SRC_DIR.."/lib/*.c",
 		TOLUA_SRC_DIR.."/lib/*.h",
-	}, {},
-	{LUA_INC_DIR, TOLUA_INC_DIR}, {})
+	},
+		{},
+	{ LUA_INC_DIR, TOLUA_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	TOLUA_APP_DEP, "c++", "exe", "",
@@ -131,8 +160,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		TOLUA_SRC_DIR.."/bin/*.h",
 		TOLUA_SRC_DIR.."/lib/*.c",
 		TOLUA_SRC_DIR.."/lib/*.h",
-	}, {},
-	{LUA_INC_DIR, TOLUA_INC_DIR}, BASE_LIB_PATH)
+	},
+		{},
+	{ LUA_INC_DIR, TOLUA_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 local jpegexclude = {}
 if os.is("windows") then
@@ -151,15 +183,18 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		JPEG_SRC_DIR.."/*.c",
 		JPEG_SRC_DIR.."/*.h",
 	}, 
-	{	jpegexclude,
-		JPEG_SRC_DIR.."/rdjpgcom.c",
-		JPEG_SRC_DIR.."/jpegtran.c",
-		JPEG_SRC_DIR.."/djpeg.c",
-		JPEG_SRC_DIR.."/ckconfig.c",
-		JPEG_SRC_DIR.."/cjpeg.c",
-		JPEG_SRC_DIR.."/ansi2knr.c",
-	},
-	{JPEG_INC_DIR}, {})
+		{
+			jpegexclude,
+			JPEG_SRC_DIR.."/rdjpgcom.c",
+			JPEG_SRC_DIR.."/jpegtran.c",
+			JPEG_SRC_DIR.."/djpeg.c",
+			JPEG_SRC_DIR.."/ckconfig.c",
+			JPEG_SRC_DIR.."/cjpeg.c",
+			JPEG_SRC_DIR.."/ansi2knr.c",
+		},
+	{ JPEG_INC_DIR },
+		{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	ZLIB_DEP, "c++", "lib", "",
@@ -168,8 +203,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	{
 		ZLIB_SRC_DIR.."/*.c",
 		ZLIB_SRC_DIR.."/*.h",
-	}, {},
-	{ZLIB_INC_DIR}, {})
+	},
+		{},
+	{ ZLIB_INC_DIR },
+		{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	PNG_DEP, "c++", "lib", "",
@@ -179,15 +217,18 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		PNG_INC_DIR.."/*.c",
 		PNG_INC_DIR.."/*.h",
 	}, 
-	{
-		PNG_INC_DIR.."/png2pnm.c",
-		PNG_INC_DIR.."/pnm2png.c",
-		PNG_INC_DIR.."/rpng-win.c",
-		PNG_INC_DIR.."/rpng-x.c",
-		PNG_INC_DIR.."/rpng2-win.c",
-		PNG_INC_DIR.."/rpng2-x.c",
-		PNG_INC_DIR.."/VisualPng.c",},
-	{PNG_INC_DIR, ZLIB_INC_DIR, DEPS_DIR}, {})
+		{
+			PNG_INC_DIR.."/png2pnm.c",
+			PNG_INC_DIR.."/pnm2png.c",
+			PNG_INC_DIR.."/rpng-win.c",
+			PNG_INC_DIR.."/rpng-x.c",
+			PNG_INC_DIR.."/rpng2-win.c",
+			PNG_INC_DIR.."/rpng2-x.c",
+			PNG_INC_DIR.."/VisualPng.c",
+		},
+	{ PNG_INC_DIR, ZLIB_INC_DIR, DEPS_DIR },
+		{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	MINI_DEP, "c++", "lib", "",
@@ -197,8 +238,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		MINI_SRC_DIR.."/*.cpp",
 		MINI_SRC_DIR.."/*.hpp",
 		MINI_SRC_DIR.."/*.h",
-	}, {MINI_SRC_DIR.."/example.cpp", MINI_SRC_DIR.."/viewer.cpp"},
-	{MINI_INC_DIR}, {})
+	},
+		{ MINI_SRC_DIR.."/example.cpp", MINI_SRC_DIR.."/viewer.cpp" },
+	{ MINI_INC_DIR },
+		{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	OGG_DEP, "c++", "lib", "",
@@ -208,8 +252,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		OGG_INC_DIR.."/**.h",
 		OGG_SRC_DIR.."/*.c",
 		OGG_SRC_DIR.."/*.h",
-	}, {},
-	{OGG_INC_DIR}, {})
+	},
+		 {},
+	{ OGG_INC_DIR },
+	{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	VORB_DEP, "c++", "lib", "",
@@ -220,12 +267,14 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		VORB_SRC_DIR.."/*.c",
 		VORB_SRC_DIR.."/*.h",
 	},
-	{
-		VORB_SRC_DIR.."/psytune.c",
-		VORB_SRC_DIR.."/barkmel.c",
-		VORB_SRC_DIR.."/tone.c"
-	},
-	{OGG_INC_DIR, VORB_INC_DIR}, {})
+		{
+			VORB_SRC_DIR.."/psytune.c",
+			VORB_SRC_DIR.."/barkmel.c",
+			VORB_SRC_DIR.."/tone.c"
+		},
+	{ OGG_INC_DIR, VORB_INC_DIR },
+		{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	OGGENC_DEP, "c++", "exe", "",
@@ -239,11 +288,13 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		VORB_TOOLS_DIR.."/oggenc/*.h",
 		VORB_TOOLS_DIR.."/include/*.h",
 	},
-	{
-		VORB_TOOLS_DIR.."/oggenc/flac.c",
-		VORB_TOOLS_DIR.."/oggenc/easyflac.c",
-	},
-	{VORB_INC_DIR, OGG_INC_DIR, VORB_TOOLS_DIR.."/include"}, {})
+		{
+			VORB_TOOLS_DIR.."/oggenc/flac.c",
+			VORB_TOOLS_DIR.."/oggenc/easyflac.c",
+		},
+	{ VORB_INC_DIR, OGG_INC_DIR, VORB_TOOLS_DIR.."/include" },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	OGGDEC_DEP, "c++", "exe", "",
@@ -255,8 +306,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		VORB_TOOLS_DIR.."/oggdec/*.c",
 		VORB_TOOLS_DIR.."/oggdec/*.h",
 		VORB_TOOLS_DIR.."/include/*.h",
-	}, {},
-	{VORB_INC_DIR, OGG_INC_DIR, VORB_TOOLS_DIR.."/include"}, {})
+	},
+		{},
+	{ VORB_INC_DIR, OGG_INC_DIR, VORB_TOOLS_DIR.."/include" },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	CAL3D_DEP, "c++", "dll", "",
@@ -265,31 +319,39 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	{
 		CAL3D_SRC_DIR.."/cal3d/*.cpp",
 		CAL3D_SRC_DIR.."/cal3d/*.h",
-	}, {},
-	{CAL3D_INC_DIR}, {})
-
-InitPackage32(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
-	CAL3D_MAX7EXP_DEP, "c++", "dll", "",
-	{CAL3D_DEP}, {}, {"core", "geom", "gfx", "mesh", "maxutil", "maxscrpt", "paramblk2"},
-	{"_AFXDLL"}, {}, {},
-	{
-		CAL3D_PLUGINS_DIR.."/src/**.cpp",
-		CAL3D_PLUGINS_DIR.."/src/**.h",
-		CAL3D_PLUGINS_DIR.."/src/**.bmp",
-		CAL3D_PLUGINS_DIR.."/src/**.ico",
-		CAL3D_MAXEXP_SRC_DIR.."/*.cpp",
-		CAL3D_MAXEXP_SRC_DIR.."/*.h",
-		CAL3D_MAXEXP_SRC_DIR.."/*.def",
-		CAL3D_MAXEXP_SRC_DIR.."/*.rc",
 	},
-	{	CAL3D_PLUGINS_DIR.."/src/win32/SelectionDialog.*" },
-	{	CAL3D_INC_DIR,
-		CAL3D_MAXEXP_INC_DIR,
-		CAL3D_MAXEXP_SRC_DIR.."/../src",
-		CAL3D_MAXEXP_SRC_DIR.."/../src/win32",
-		MAX7SDK_INC_DIR,
-		MAX7SDK_INC_DIR.."/CS"},
-	{	MAX7SDK_LIBRARIES_DIR} )
+		{},
+	{ CAL3D_INC_DIR },
+		{}
+)
+
+if os.is("windows") then
+	InitPackage32(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
+		CAL3D_MAX7EXP_DEP, "c++", "dll", "",
+		{CAL3D_DEP}, {}, {"core", "geom", "gfx", "mesh", "maxutil", "maxscrpt", "paramblk2"},
+		{"_AFXDLL"}, {}, {},
+		{
+			CAL3D_PLUGINS_DIR.."/src/**.cpp",
+			CAL3D_PLUGINS_DIR.."/src/**.h",
+			CAL3D_PLUGINS_DIR.."/src/**.bmp",
+			CAL3D_PLUGINS_DIR.."/src/**.ico",
+			CAL3D_MAXEXP_SRC_DIR.."/*.cpp",
+			CAL3D_MAXEXP_SRC_DIR.."/*.h",
+			CAL3D_MAXEXP_SRC_DIR.."/*.def",
+			CAL3D_MAXEXP_SRC_DIR.."/*.rc",
+		},
+			{ CAL3D_PLUGINS_DIR.."/src/win32/SelectionDialog.*" },
+		{
+			CAL3D_INC_DIR,
+			CAL3D_MAXEXP_INC_DIR,
+			CAL3D_MAXEXP_SRC_DIR.."/../src",
+			CAL3D_MAXEXP_SRC_DIR.."/../src/win32",
+			MAX7SDK_INC_DIR,
+			MAX7SDK_INC_DIR.."/CS"
+		},
+			{ MAX7SDK_LIBRARIES_DIR, DEPS_LIB_DIR }
+	)
+end
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	ODE_DEP, "c++", "lib", "",
@@ -305,12 +367,14 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		ODE_GIMPACT_DIR.."/**.h",
 		ODE_GIMPACT_DIR.."/**.cpp",
 	}, 
-	{
-		ODE_SRC_DIR.."/collision_std.cpp",
-		ODE_SRC_DIR.."/scrapbook.cpp",
-		ODE_SRC_DIR.."/stack.cpp",
-	},
-	{ODE_INC_DIR, ODE_DIR, ODE_GIMPACT_DIR.."/include", ODE_OPCODE_DIR}, {})
+		{
+			ODE_SRC_DIR.."/collision_std.cpp",
+			ODE_SRC_DIR.."/scrapbook.cpp",
+			ODE_SRC_DIR.."/stack.cpp",
+		},
+	{ ODE_INC_DIR, ODE_DIR, ODE_GIMPACT_DIR.."/include", ODE_OPCODE_DIR},
+		{}
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	CEGUIBASE071_DEP, "c++", "dll", "",
@@ -324,20 +388,24 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		CEGUI071_SRC_DIR.."/falagard/*.cpp",
 		CEGUI071_INC_DIR.."/falagard/*.h",
 	},
-		{CEGUI071_SRC_DIR.."/minibidi.cpp",},
-	{CEGUI071_INC_DIR, FTYPE_INC_DIR, PCRE_INC_DIR},
-		BASE_LIB_PATH)
+		{CEGUI071_SRC_DIR.."/minibidi.cpp", },
+	{ CEGUI071_INC_DIR, FTYPE_INC_DIR, PCRE_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	CEGUILUA071_DEP, "c++", "dll", "",
 	{CEGUIBASE071_DEP, TOLUA_DLL_DEP, LUA_DLL_DEP}, {}, {},
 	{"HAVE_CONFIG_H", "CEGUILUA_EXPORTS", "TOLUA_RELEASE"}, {}, {},
-	{	CEGUI071_LUA_SRC_DIR.."/*.cpp",
+	{
+		CEGUI071_LUA_SRC_DIR.."/*.cpp",
 		CEGUI071_LUA_SRC_DIR.."/*.h",
 		CEGUI071_LUA_INC_DIR.."/*.h",
-	}, {},
-	{CEGUI071_INC_DIR, CEGUI071_LUA_INC_DIR, LUA_INC_DIR, TOLUA_INC_DIR},
-		BASE_LIB_PATH)
+	},
+		{},
+	{ CEGUI071_INC_DIR, CEGUI071_LUA_INC_DIR, LUA_INC_DIR, TOLUA_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	CEGUIXML071_DEP, "c++", "dll", "",
@@ -348,9 +416,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		CEGUI071_XML_SRC_DIR.."/*.cpp",
 		CEGUI071_XML_INC_DIR.."/ceguitinyxml/*.h",
 		CEGUI071_XML_SRC_DIR.."/ceguitinyxml/*.cpp",
-	}, {},
-	{CEGUI071_INC_DIR, CEGUI071_XML_INC_DIR},
-		BASE_LIB_PATH)
+	},
+		{},
+	{ CEGUI071_INC_DIR, CEGUI071_XML_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	CEGUIFAL071_DEP, "c++", "dll", "",
@@ -359,9 +429,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	{
 		CEGUI071_WR_SRC_DIR.."/*.cpp",
 		CEGUI071_WR_INC_DIR.."/*.h",
-	}, {},
-	{CEGUI071_INC_DIR, CEGUI071_WR_INC_DIR},
-		BASE_LIB_PATH)
+	},
+		{},
+	{ CEGUI071_INC_DIR, CEGUI071_WR_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	CEGUIIMG071_DEP, "c++", "dll", "",
@@ -370,9 +442,11 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	{
 		CEGUI071_CODEC_SRC_DIR.."/*.cpp",
 		CEGUI071_CODEC_INC_DIR.."/*.h",
-	}, {},
-	{CEGUI071_INC_DIR, CEGUI071_CODEC_INC_DIR},
-		BASE_LIB_PATH)
+	},
+		{},
+	{ CEGUI071_INC_DIR, CEGUI071_CODEC_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	DEVIL_DEP, "c++", "lib", "",
@@ -384,6 +458,8 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		DEVIL_IL_SRC_DIR.."/*.c",
 		DEVIL_ILU_INC_DIR.."/*.h",
 		DEVIL_ILU_SRC_DIR.."/*.c",
-	}, {},
-	{DEVIL_INC_DIR, DEVIL_IL_INC_DIR, DEVIL_ILU_INC_DIR, PNG_INC_DIR, ZLIB_INC_DIR, JPEG_INC_DIR},
-		{BASE_LIB_PATH})
+	},
+		{},
+	{ DEVIL_INC_DIR, DEVIL_IL_INC_DIR, DEVIL_ILU_INC_DIR, PNG_INC_DIR, ZLIB_INC_DIR, JPEG_INC_DIR },
+		{ DEPS_LIB_DIR }
+)

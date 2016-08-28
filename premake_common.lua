@@ -1,6 +1,20 @@
 
-DEPS_DIR = rootdir.."/deps"
-SRC_DIR  = rootdir.."/base/src"
+ARCH64 = false
+ARCH = "x32"
+
+for i = 1, table.getn(_ARGS) do
+	if tostring(_ARGS[1]) == "arch64" then
+		ARCH64 = true
+	end
+end
+
+if ARCH64 then
+	ARCH = "x64"
+end
+
+LIBS_DIR = { ROOT_DIR.."/bin/"..ARCH}
+
+DEPS_DIR = ROOT_DIR.."/deps"
 
 -- CEGUI (Crazy Eddie's GUI)
 
@@ -66,6 +80,11 @@ LUA_DIR		= DEPS_DIR.."/lua/lua-5.1.4"
 LUA_INC_DIR	= LUA_DIR.."/src"
 LUA_SRC_DIR	= LUA_DIR.."/src"
 
+-- Lua addons
+LUA_ADD_DIR		= DEPS_DIR.."/lua/addons"
+LUA_ADD_INC_DIR	= LUA_ADD_DIR
+LUA_ADD_SRC_DIR	= LUA_ADD_DIR
+
 -- Lua dll
 LUA_DLL_DEP		= "Lua-{v.5.1.4}"
 LUA_DLL_DIR		= DEPS_DIR.."/luadll"
@@ -84,6 +103,7 @@ TOLUA_DLL_DIR		= DEPS_DIR.."/tolua++dll"
 TOLUA_DLL_INC_DIR	= TOLUA_DLL_DIR.."/include"
 TOLUA_DLL_SRC_DIR	= TOLUA_DLL_DIR.."/src"
 
+-- tolua++ app
 TOLUA_APP_DEP	= "tolua++"
 
 -- jpeg
@@ -144,19 +164,15 @@ OGGDEC_DEP = "oggdec-{v.1.0.1}"
 OGGENC_DEP = "oggenc-{v.1.0.1}"
 VORB_TOOLS_DIR	= OGGVORB_DIR.."/vorbis-tools-1.0.1"
 
+-- 3dmax stuff
 MAX7SDK_DIR				= DEPS_DIR.."/maxsdk/7"
 MAX7SDK_INC_DIR			= MAX7SDK_DIR.."/include"
 MAX7SDK_LIBRARIES_DIR	= MAX7SDK_DIR.."/lib"
 
+-- OpenAL stuff
 OAL_INC_DIR	= DEPS_DIR.."/openal/include/al"
 
-local is64 = false
-
-for i = 1, table.getn(_ARGS) do
-	if tostring(_ARGS[1]) == "arch64" then
-		is64  = true
-	end
-end
+--------------------------------------------------------------------------------------------------
 
 function CollectStrings(tbl, res_tbl)
 	for key, value in pairs(tbl) do
@@ -177,22 +193,17 @@ function InitPackage(_solname, _solpath,
 	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
 	_main, _dbg_main)
 
-	local archstr = "x32"
+	_solname = _solname.."_"..ARCH
+	local prjpath = _solpath.."/"..ARCH
 
-	if is64  then
-		archstr = "x64"
-	end
-
-	_solpath = _solpath.."/"..archstr
-
-	io.write(string.format("Creating project (%s) %s -> %s ...\n", archstr, _solname, _prjname))
+	io.write(string.format("Creating project (%s) %s -> %s ...\n", ARCH, _solname, _prjname))
 
 	solution(_solname)
 	basedir(_solpath)
 	configurations {"Release", "Debug"}
 
-	if archstr == "x64" then
-		platforms { archstr }
+	if ARCH == "x64" then
+		platforms { ARCH }
 	end
 
 	local kind4 = {
@@ -208,15 +219,15 @@ function InitPackage(_solname, _solpath,
 
 	project(fullname)
 		kind(kind4[_kind])
-		basedir(_solpath)
+		basedir(prjpath)
 		language(_lang)
-		targetdir(rootdir.."/bin/"..archstr)
+		targetdir(ROOT_DIR.."/bin/"..ARCH)
 
 		files(_files)
 		excludes(_excludes)
 
 		includedirs(_inc_paths)
-		libdirs({_lib_paths, rootdir.."/bin/"..archstr})
+		libdirs(_lib_paths)
 
 		local rel_links = {}
 		local dbg_links = {}
@@ -288,7 +299,7 @@ function InitPackage(_solname, _solpath,
 
 		configuration("Release")
 			targetname(fullname)
-			objdir(rootdir.."/obj/"..archstr.."/"..fullname.."/Release")
+			objdir(ROOT_DIR.."/obj/"..ARCH.."/"..fullname.."/Release")
 			defines(rel_defines)
 			flags(rel_flags)
 			buildoptions(rel_buildoptions)
@@ -297,7 +308,7 @@ function InitPackage(_solname, _solpath,
 
 		configuration("Debug")
 			targetname(fullname.."_d")
-			objdir(rootdir.."/obj/"..archstr.."/"..fullname.."/Debug")
+			objdir(ROOT_DIR.."/obj/"..ARCH.."/"..fullname.."/Debug")
 			defines(dbg_defines)
 			flags(dbg_flags)
 			buildoptions(dbg_buildoptions)
@@ -313,7 +324,7 @@ function InitPackage32(_solname, _solpath,
 	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
 	_main, _dbg_main)
 
-	if not is64 then
+	if not ARCH64 then
 		InitPackage(_solname, _solpath,
 			_prjname, _lang, _kind, _name_suffix,
 			_prjdeps, _deps, _sysdeps,
@@ -332,7 +343,7 @@ function InitPackage64(_solname, _solpath,
 	_build_opts, _link_opts, _dbg_build_opts, _dbg_link_opts,
 	_main, _dbg_main)
 
-	if is64 then
+	if ARCH64 then
 		InitPackage(_solname, _solpath,
 			_prjname, _lang, _kind, _name_suffix,
 			_prjdeps, _deps, _sysdeps,
@@ -342,9 +353,3 @@ function InitPackage64(_solname, _solpath,
 			_main, _dbg_main)
 	end
 end
-
-BASE_LIB_PATH =
-{ DEPS_DIR.."/lib/static", DEPS_DIR.."/lib/dynamic", rootdir.."/bin"}
-
-BASE_INC_PATH =
-{ SRC_DIR.."/inc", DEPS_DIR, SRC_DIR.."/vid/gl", }
