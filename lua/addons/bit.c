@@ -28,10 +28,7 @@
 
 #define LUA_BITOP_VERSION	"1.0.1"
 
-#define LUA_LIB
-#include "lua.h"
-#include "lauxlib.h"
-#include "lualib.h"
+#include "laddons.h"
 
 #ifdef _MSC_VER
 /* MSVC is stuck in the last century and doesn't have C99's stdint.h. */
@@ -154,7 +151,7 @@ static const struct luaL_reg bit_funcs[] = {
 */
 #define BAD_SAR		(bsar(-8, 2) != (SBits)-2)
 
-LUALIB_API int luaopen_bit(lua_State *L)
+int luaopen_bit(lua_State *L)
 {
   UBits b;
   lua_pushnumber(L, (lua_Number)1437217655L);
