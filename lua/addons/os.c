@@ -28,11 +28,6 @@ static const luaL_Reg os_functions[] = {
 //     description  - A human-readable description of the OS version
 	{ "getversion",  os_getversion  },
 	{ "isfile",      os_isfile      },
-	{ "matchdone",   os_matchdone   },
-	{ "matchisfile", os_matchisfile },
-	{ "matchname",   os_matchname   },
-	{ "matchnext",   os_matchnext   },
-	{ "matchstart",  os_matchstart  },
 	{ "mkdir",       os_mkdir       },
 	{ "pathsearch",  os_pathsearch  },
 	{ "rmdir",       os_rmdir       },
