@@ -51,7 +51,7 @@ MINI_SRC_DIR	= MINI_DIR
 MINI_INC_DIR	= MINI_DIR
 
 -- Freetype (Free True Type fonts library)
-FTYPE_DEP		= "FreeType-{v.2.1.9}"
+FTYPE_DEP		= "FreeType-{v.2.1.9"
 FTYPE_DIR		= DEPS_DIR.."/freetype/freetype-2.1.9"
 FTYPE_SRC_DIR	= FTYPE_DIR.."/src"
 FTYPE_INC_DIR	= FTYPE_DIR.."/include"
@@ -229,15 +229,22 @@ function InitPackage(_solname, _solpath,
 		includedirs(_inc_paths)
 		libdirs(_lib_paths)
 
+		local _tbl = {}
+
 		local rel_links = {}
 		local dbg_links = {}
-		for key, value in pairs(_deps) do
+
+		_tbl = {}
+		CollectStrings(_deps, _tbl)
+		for key, value in pairs(_tbl) do
 			table.insert(rel_links, value)
 			table.insert(dbg_links, value.."_d")
 		end
 		table.insert(rel_links, _sysdeps)
 		table.insert(dbg_links, _sysdeps)
-		for key, value in pairs(_prjdeps) do
+		_tbl = {}
+		CollectStrings(_prjdeps, _tbl)
+		for key, value in pairs(_tbl) do
 			table.insert(rel_links, value)
 			table.insert(dbg_links, value.."_d")
 		end

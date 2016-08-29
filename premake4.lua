@@ -46,7 +46,9 @@ InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 		DEPS_DIR.."/freetypedll/src/*.cpp",
 		DEPS_DIR.."/freetypedll/src/*.def",
 	}, {},
-	{FTYPE_INC_DIR}, DEPS_LIB_DIR)
+	{ FTYPE_INC_DIR },
+		{ DEPS_LIB_DIR }
+)
 
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	PCRE_DEP, "c++", "lib", "",
