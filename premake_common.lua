@@ -57,12 +57,13 @@ FTYPE_SRC_DIR	= FTYPE_DIR.."/src"
 FTYPE_INC_DIR	= FTYPE_DIR.."/include"
 
 -- ODE (Open Dynamic Engine)
-ODE_DEP			= "libode-{v.0.6}"
-ODE_DIR			= DEPS_DIR.."/ode/ode-0.6"
+ODE_DEP			= "libode-{v.0.13}"
+ODE_DIR			= DEPS_DIR.."/ode/ode-0.13"
 ODE_SRC_DIR		= ODE_DIR.."/ode/src"
 ODE_INC_DIR		= ODE_DIR.."/include"
 ODE_OPCODE_DIR	= ODE_DIR.."/OPCODE"
 ODE_GIMPACT_DIR	= ODE_DIR.."/GIMPACT"
+ODE_OU_DIR		= ODE_DIR.."/ou"
 
 -- pcre
 PCRE_DEP		= "libpcre-{v.5.0}"

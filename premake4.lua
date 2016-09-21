@@ -358,23 +358,36 @@ end
 InitPackage(DEPS_PRJ_NAME, DEPS_PRJ_DIR,
 	ODE_DEP, "c++", "lib", "",
 	{}, {}, {},
-	{"ODE_LIB"}, {}, {},
 	{
-		ODE_SRC_DIR.."/*.cpp",
-		ODE_SRC_DIR.."/*.c",
-		ODE_SRC_DIR.."/*.h",
+		"ODE_LIB", "_OU_NAMESPACE=odeou",
+	},
+		{},
+			{},
+	{
 		ODE_INC_DIR.."/ode/*.h",
+		ODE_SRC_DIR.."/joints/*.h", 
+		ODE_SRC_DIR.."/joints/*.cpp", 
+		ODE_SRC_DIR.."/*.h", 
+		ODE_SRC_DIR.."/*.c", 
+		ODE_SRC_DIR.."/*.cpp",
+	    ODE_OU_DIR.."/**.h",
+		ODE_OU_DIR.."/**.cpp",
 		ODE_OPCODE_DIR.."/**.h",
 		ODE_OPCODE_DIR.."/**.cpp",
-		ODE_GIMPACT_DIR.."/**.h",
-		ODE_GIMPACT_DIR.."/**.cpp",
 	}, 
 		{
 			ODE_SRC_DIR.."/collision_std.cpp",
-			ODE_SRC_DIR.."/scrapbook.cpp",
-			ODE_SRC_DIR.."/stack.cpp",
+			ODE_SRC_DIR.."/collision_libccd.cpp",
+			ODE_SRC_DIR.."/collision_libccd.h"
 		},
-	{ ODE_INC_DIR, ODE_DIR, ODE_GIMPACT_DIR.."/include", ODE_OPCODE_DIR},
+	{
+		ODE_INC_DIR,
+		ODE_SRC_DIR,
+		ODE_SRC_DIR.."/joints",
+		ODE_GIMPACT_DIR.."/include",
+		ODE_OPCODE_DIR,
+		ODE_OU_DIR.."/include",
+	},
 		{}
 )
 
