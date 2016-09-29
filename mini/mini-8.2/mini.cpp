@@ -2,6 +2,8 @@
 
 #include "miniP.h"
 
+#define MY_MINI_HACKS 1
+
 // set the global error handler for the mini library
 void setminierrorhandler(void (*handler)(char *file,int line,int fatal))
    {minierrorhandler=handler;}
@@ -33,6 +35,9 @@ void scalemap(short int *image,int size)
    float pi,pj,
          ri,rj;
 
+#if MY_MINI_HACKS
+   return;
+#endif
    for (i=0; i<S; i++)
       for (j=0; j<S; j++)
          if (size==S) y[i][j]=image[(S-1-j)*S+i];
@@ -193,8 +198,14 @@ void *initmap(short int *image,void **d2map,
 
    SCALE=scale;
 
+#if MY_MINI_HACKS
+   if (image==NULL || *size!=S) ERRORMSG();
+#endif
    if ((y=(short int **)malloc((S+1)*sizeof(short int *)))==NULL) ERRORMSG();
    for (i=0; i<=S; i++)
+#if MY_MINI_HACKS
+      if (i<S && (y[i]=(image+(i*S)))==NULL) ERRORMSG(); else if (i<S) continue; else
+#endif
       if ((y[i]=(short int *)malloc(S*sizeof(short int)))==NULL) ERRORMSG();
 
    if (image!=NULL) scalemap(image,*size);
@@ -2748,7 +2759,11 @@ void deletemaps()
 
    if (S==0) ERRORMSG();
 
+#if MY_MINI_HACKS
+   free(y[S]);
+#else
    for (i=0; i<=S; i++) free(y[i]);
+#endif
    for (i=0; i<S-1; i++) free(bc[i]);
 
    free(y);
